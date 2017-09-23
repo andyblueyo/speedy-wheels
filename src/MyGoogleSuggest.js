@@ -17,7 +17,7 @@ class SimpleForm extends React.Component {
       .then(latLng => {
         console.log("firing");
         this.setState({ lat: latLng.lat , long: latLng.lng })
-        console.log(this.state);
+        console.log(this.getResponse(this.state.lat, this.state.long));
       })
       .catch(error => console.error('Error', error))
   }
