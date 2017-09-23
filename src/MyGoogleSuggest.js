@@ -14,8 +14,8 @@ class SimpleForm extends React.Component {
 
     geocodeByAddress(this.state.address)
       .then(results => getLatLng(results[0]))
-      .then(latLng => (latLng) => {
-        //console.log('Success', latLng);
+      .then(latLng => {
+        console.log("firing");
         this.setState({ lat: latLng.lat , long: latLng.lng })
         console.log(this.state);
       })
