@@ -14,17 +14,6 @@ class RequestForm extends Component {
   state = {}
 
   handleChange = (e, { value }) => {
-      console.log("eva")
-      var request = {}
-      request.name = "Eva"
-      request.origin = "4560 34th Ave S, Seattle, WA 98118"
-      request.destination = "325 9th Ave, Seattle, WA 98104"
-      request.age = 65
-      request.date = "2017/10/02"
-      request.time = "10:00:00"
-      request.ifNeedReturn = true
-      request.ifMedicalApt = false
-      this.getResponse();
       this.setState({ value })
   }
 
@@ -61,8 +50,24 @@ class RequestForm extends Component {
           "$$app_token" : "ZblfCkOVREKx1lb1pdaqTTYud"
         }
       }).done(function(data) {
-        console.log(data);
+        console.log("eva: data" ,data);
+        console.log("eva: request", request)
       });
+    }
+
+    handleSubmit = (e, { value }) => {
+      console.log("eva: e", e)
+        console.log("eva: value", value)
+        var request = {}
+        request.name = "Eva"
+        request.origin = "4560 34th Ave S, Seattle, WA 98118"
+        request.destination = "325 9th Ave, Seattle, WA 98104"
+        request.age = 65
+        request.date = "2017/10/02"
+        request.time = "10:00:00"
+        request.ifNeedReturn = true
+        request.ifMedicalApt = false
+        console.log("eva: handleSubmit",this.getResponse(request))
     }
 
   render() {
@@ -84,7 +89,11 @@ class RequestForm extends Component {
             <Form.Radio label='Large' value='lg' checked={value === 'lg'} onChange={this.handleChange} />
           </Form.Group>
           <Form.TextArea label='About' placeholder='Comments...' />
+<<<<<<< HEAD
           <Form.Button onSubmit={console.log(this.processRequest())}>Submit</Form.Button>
+=======
+          <Form.Button onSubmit={this.handleSubmit}>Submit</Form.Button>
+>>>>>>> 1b58334bd817a6c6cd49ca52b6420c1c9803527c
         </Form>
       </div>
     );
