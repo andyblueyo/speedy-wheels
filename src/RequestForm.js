@@ -1,46 +1,17 @@
 import React, { Component } from 'react'
-import { Form, Header, Container } from 'semantic-ui-react'
+import { Form, Header, Container, Divider, Grid } from 'semantic-ui-react'
 import SimpleForm  from './MyGoogleSuggest';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
-// import {nodemailer} from 'nodemailer';
-
 
 class RequestForm extends Component {
-  state = {}
+  state = {showEmailAddress: false, showPhoneNumber: false}
 
   handleChange = (e, { value }) => {
       this.setState({ value })
   }
-
-  // sendEmail(){
-  //   var transporter = nodemailer.createTransport({
-  //     service: 'gmail',
-  //     auth: {
-  //       user: 'codechiang2222@gmail.com',
-  //       pass: 'city4all'
-  //     }
-  //   });
-  //
-  //   var mailOptions = {
-  //     from: 'chiang4782@gmail.com',
-  //     to: 'chiang4782@yahoo.com',
-  //     subject: 'Sending Email using Node.js',
-  //     text: 'That was easy!'
-  //   };
-  //
-  //   transporter.sendMail(mailOptions, function(error, info){
-  //     if (error) {
-  //       console.log(error);
-  //     } else {
-  //       console.log('Email sent: ' + info.response);
-  //     }
-  //   });
-  //
-  // }
-    // var data = [1, 2,];
 
     processRequest = () => {
       const lat = 47.559440;
@@ -92,28 +63,73 @@ class RequestForm extends Component {
         request.ifMedicalApt = false
         console.log("eva: handleSubmit",this.getResponse(request))
     }
+  toggleEmailForm=()=>{
+    this.setState({showEmailAddress: !this.state.showEmailAddress});
+  }
 
+  tooglePhoneForm= ()=>{
+    this.setState({showPhoneNumber: !this.state.showPhoneNumber});
+  }
   render() {
     const { value } = this.state
       return (
         <div className="smallBox">
         <Header as='h2' icon='bus' content='Request Shuttle' />
+        <Form.Group widths='equal'>
+        <Divider horizontal>Basic Information</Divider>
+        <Grid columns='two' divided>
+            <Grid.Row>
+              <Grid.Column>
+                <Form.Field>
+                  <label>From</label>
+                  <SimpleForm/>
+                </Form.Field>
+              </Grid.Column>
+              <Grid.Column>
+                <Form.Field>
+                  <label>To</label>
+                  <SimpleForm/>
+                </Form.Field>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <Form.Field>
+                  <label>First Name</label>
+                  <Form.Input placeholder='First name' />
+                </Form.Field>
+              </Grid.Column>
+              <Grid.Column>
+                <Form.Field>
+                  <label>Last Name</label>
+                  <Form.Input placeholder='Last name' />
+                </Form.Field>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Form.Group>
+        <Divider horizontal></Divider>
 
-        <SimpleForm/>
-          <Form.Group widths='equal'>
-            <Form.Input label='Full name' placeholder='Full name' />
-            <Form.Input label='Last name' placeholder='Last name' />
-            <Form.Input label='Age' placeholder='Age' />
+          <Form.Group>
+          <label>Notifications</label>
+            <Form.Radio label='Text' value='sm' checked={value === 'sm'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
+            <Form.Radio label='Phone Call' value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
+            {this.state.showPhoneNumber&&
+              <Form.Input label='Phone Number' placeholder='Email' />
+            }
+            <Form.Radio label='Email' value='md' checked={value === 'md'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.toggleEmailForm()}} />
+            {this.state.showEmailAddress&&
+              <Form.Input label='Email' placeholder='Email' />
+            }
           </Form.Group>
-          <Form.Group inline>
-            <label>Notifications</label>
-            <Form.Radio label='Text' value='sm' checked={value === 'sm'} onChange={this.handleChange} />
-            <Form.Radio label='Email' value='md' checked={value === 'md'} onChange={this.handleChange} />
-            <Form.Radio label='Phone Call' value='lg' checked={value === 'lg'} onChange={this.handleChange} />
-          </Form.Group>
+
+          <Form.Group>
+          <Divider horizontal>Other</Divider>
+
           <Form.TextArea label='About' placeholder='Comments...' />
+          </Form.Group>
+
           <Form.Button onSubmit={console.log(this.processRequest())}>Submit</Form.Button>
-          <button onclick="sendEmail()">Send Email</button>
       </div>
     );
   }

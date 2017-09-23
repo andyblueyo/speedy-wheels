@@ -17,7 +17,7 @@ class SimpleForm extends React.Component {
       .then(latLng => {
         console.log("firing");
         this.setState({ lat: latLng.lat , long: latLng.lng })
-        console.log(this.getResponse(this.state.lat, this.state.long));
+        console.log(this.state);
       })
       .catch(error => console.error('Error', error))
   }
@@ -67,7 +67,6 @@ class SimpleForm extends React.Component {
     return (
       <form onSubmit={this.handleFormSubmit}>
         <PlacesAutocomplete inputProps={inputProps} />
-        <button type="submit">Submit</button>
       </form>
     )
   }
