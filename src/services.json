@@ -1,0 +1,46 @@
+[
+  {
+    "operator": "American Parkinson’s Disease Association (APDA)",
+    "phone": "206-695-2905",
+    "shuttlenam": "Ride Repay",
+    "the_geom": {
+        "coordinates": [],
+        "type": "MultiPolygon"
+      },
+    "website": "www.apdanorthwest.org",
+    "info": "Use the transportation provider of your choice to go wherever you wish. APDA will reimburse up to $300 per year for eligible travel expenses such as taxi, bus, ferry, or rail fare, or gasoline expenses.",
+    "requirements": {
+      "disease": "parkinson's"
+    }
+  },
+  {
+    "operator": "American Cancer Society",
+    "phone": "1-800-227-2345",
+    "shuttlenam": "Road to Recovery",
+    "the_geom": {
+        "coordinates": [],
+        "type": "MultiPolygon"
+      },
+    "website": "www.cancer.org",
+    "info": "Provides transportation to and from treatment for people with cancer who do not have a ride or are unable to drive themselves.",
+    "requirements": {
+      "disease": "cancer"
+    }
+  },
+  {
+    "operator": "Catholic Community Services",
+    "phone": "206-323-6336",
+    "shuttlenam": "Volunteer Services Program",
+    "the_geom": {
+        "coordinates": [],
+        "type": "MultiPolygon"
+      },
+    "website": "www.ccsww.org",
+    "info": "Provides transportation to and from treatment for people with cancer who do not have a ride or are unable to drive themselves.",
+    "restrictions": {
+      "mobility": [
+        "wheelchair", "lift"
+      ]
+    }
+  }
+]
