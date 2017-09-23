@@ -30,9 +30,10 @@ class App extends Component {
            for you! For a complete listing of trips refer to the Parks
           & Community Services Quarterly Activity Guide.
           <a
-          href="http://www.kirklandwa.gov/depart/parks/About_Parks_and_Community_Services/Senior_Services/Van_Service_Trip.htm" target="_blank">Offical Information</a>
-          <a href="tel:4255873363"></br>
-          <Icon name='volume control phone' size='large' /></br>
+          href="http://www.kirklandwa.gov/depart/parks/About_Parks_and_Community_Services/Senior_Services/Van_Service_Trip.htm" target="_blank">
+          Offical Information</a>
+          <a href="tel:4255873363">
+          <Icon name='volume control phone' size='large' />
           (425) 587-3363
           </a>
          </Card.Description>
