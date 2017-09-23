@@ -5,10 +5,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
-// const options = [
-//   { key: '45', text: '45+', value: '45' },
-//   { key: '65', text: '65+', value: '65' },
-// ]
+// var nodemailer = require('nodemailer');
+
 
 class RequestForm extends Component {
   state = {}
@@ -17,6 +15,31 @@ class RequestForm extends Component {
       this.setState({ value })
   }
 
+  // sendEmail(){
+  //   var transporter = nodemailer.createTransport({
+  //     service: 'gmail',
+  //     auth: {
+  //       user: 'youremail@gmail.com',
+  //       pass: 'yourpassword'
+  //     }
+  //   });
+  //
+  //   var mailOptions = {
+  //     from: 'youremail@gmail.com',
+  //     to: 'myfriend@yahoo.com',
+  //     subject: 'Sending Email using Node.js',
+  //     text: 'That was easy!'
+  //   };
+  //
+  //   transporter.sendMail(mailOptions, function(error, info){
+  //     if (error) {
+  //       console.log(error);
+  //     } else {
+  //       console.log('Email sent: ' + info.response);
+  //     }
+  //   });
+  //
+  // }
     // var data = [1, 2,];
 
     processRequest = () => {
@@ -84,13 +107,12 @@ class RequestForm extends Component {
           </Form.Group>
           <Form.Group inline>
             <label>Notifications</label>
-            <Form.Radio label='Small' value='sm' checked={value === 'sm'} onChange={this.handleChange} />
-            <Form.Radio label='Medium' value='md' checked={value === 'md'} onChange={this.handleChange} />
-            <Form.Radio label='Large' value='lg' checked={value === 'lg'} onChange={this.handleChange} />
+            <Form.Radio label='Text' value='sm' checked={value === 'sm'} onChange={this.handleChange} />
+            <Form.Radio label='Email' value='md' checked={value === 'md'} onChange={this.handleChange} />
+            <Form.Radio label='Phone Call' value='lg' checked={value === 'lg'} onChange={this.handleChange} />
           </Form.Group>
           <Form.TextArea label='About' placeholder='Comments...' />
           <Form.Button onSubmit={console.log(this.processRequest())}>Submit</Form.Button>
-          //<Form.Button onSubmit={this.handleSubmit}>Submit</Form.Button>
         </Form>
       </div>
     );
