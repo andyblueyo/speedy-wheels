@@ -11,7 +11,26 @@ import 'semantic-ui-css/semantic.min.css';
 class RequestForm extends Component {
   state = {}
 
-  handleChange = (e, { value }) => this.setState({ value })
+  handleChange = (e, { value }) => {
+      console.log("eva")
+      var request = {}
+      request.name = "Eva"
+      request.origin = "4560 34th Ave S, Seattle, WA 98118"
+      request.destination = "325 9th Ave, Seattle, WA 98104"
+      request.age = 65
+      request.date = "2017/10/02"
+      request.time = "10:00:00"
+      request.ifNeedReturn = true
+      request.ifMedicalApt = false
+      this.getResponse (request);
+      this.setState({ value })
+  }
+
+    // var data = [1, 2,];
+
+    getResponse = (request) => {
+        console.log(request)
+    }
 
   render() {
   const { value } = this.state
