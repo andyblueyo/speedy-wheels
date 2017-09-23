@@ -1,0 +1,37 @@
+{
+  "name": "speedwheel",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "latest",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "firebase": "^4.0.0",
+    "gh-pages": "^1.0.0",
+    "http-server": "^0.10.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
+    "recharts": "^1.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-scripts": "1.0.2",
+    "semantic-ui-css": "^2.2.10",
+    "semantic-ui-react": "^0.68.3",
+    "auth0-js": "^8.7.0",
+    "bootstrap": "^3.3.7",
+    "react-bootstrap": "^0.31.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "server": "node build/server.js",
+
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
