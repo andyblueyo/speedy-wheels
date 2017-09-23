@@ -17,6 +17,7 @@ import {
         <Route exact path="/" component={(props) => <RequestForm {...props}/>} />
         <Route path="/home" component={RequestForm}   />
         <Route path="/form" component={RequestForm}   />
+        <Route path="/info" component={App}   />
       </div>
     </Router>,
     document.getElementById('root')

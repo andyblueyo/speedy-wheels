@@ -5,7 +5,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
-// var nodemailer = require('nodemailer');
+// import {nodemailer} from 'nodemailer';
 
 
 class RequestForm extends Component {
@@ -19,14 +19,14 @@ class RequestForm extends Component {
   //   var transporter = nodemailer.createTransport({
   //     service: 'gmail',
   //     auth: {
-  //       user: 'youremail@gmail.com',
-  //       pass: 'yourpassword'
+  //       user: 'codechiang2222@gmail.com',
+  //       pass: 'city4all'
   //     }
   //   });
   //
   //   var mailOptions = {
-  //     from: 'youremail@gmail.com',
-  //     to: 'myfriend@yahoo.com',
+  //     from: 'chiang4782@gmail.com',
+  //     to: 'chiang4782@yahoo.com',
   //     subject: 'Sending Email using Node.js',
   //     text: 'That was easy!'
   //   };
@@ -113,6 +113,7 @@ class RequestForm extends Component {
           </Form.Group>
           <Form.TextArea label='About' placeholder='Comments...' />
           <Form.Button onSubmit={console.log(this.processRequest())}>Submit</Form.Button>
+          <button onclick="sendEmail()">Send Email</button>
       </div>
     );
   }
