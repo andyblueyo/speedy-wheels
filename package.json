@@ -10,10 +10,13 @@
     "firebase": "^4.0.0",
     "gh-pages": "^1.0.0",
     "http-server": "^0.10.0",
+    "leaflet": "^1.2.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-google-maps": "^8.3.0",
     "react-google-maps-loader": "^3.0.1",
     "react-google-places-suggest": "^2.1.1",
+    "react-leaflet": "^1.6.6",
     "react-places-autocomplete": "^5.4.3",
     "react-router": "^4.1.1",
     "recharts": "^1.0.0-alpha.2"
