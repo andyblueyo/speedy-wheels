@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Header, Container } from 'semantic-ui-react'
-
+import SimpleForm  from './MyGoogleSuggest';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
