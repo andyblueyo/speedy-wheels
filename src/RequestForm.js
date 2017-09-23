@@ -50,8 +50,8 @@ class RequestForm extends Component {
           "$$app_token" : "ZblfCkOVREKx1lb1pdaqTTYud"
         }
       }).done(function(data) {
-        console.log("eva: data" ,data);
-        console.log("eva: request", request)
+        console.log(data);
+        //console.log("eva: data" ,data);
       });
     }
 
@@ -89,11 +89,8 @@ class RequestForm extends Component {
             <Form.Radio label='Large' value='lg' checked={value === 'lg'} onChange={this.handleChange} />
           </Form.Group>
           <Form.TextArea label='About' placeholder='Comments...' />
-<<<<<<< HEAD
           <Form.Button onSubmit={console.log(this.processRequest())}>Submit</Form.Button>
-=======
-          <Form.Button onSubmit={this.handleSubmit}>Submit</Form.Button>
->>>>>>> 1b58334bd817a6c6cd49ca52b6420c1c9803527c
+          //<Form.Button onSubmit={this.handleSubmit}>Submit</Form.Button>
         </Form>
       </div>
     );
