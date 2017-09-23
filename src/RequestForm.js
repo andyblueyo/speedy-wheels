@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Header, Container } from 'semantic-ui-react'
-
+import { SimpleForm } from './MyGoogleSuggest';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
@@ -20,6 +20,7 @@ class RequestForm extends Component {
       <Header as='h2' icon='bus' content='Request Shuttle' />
 
       <Form>
+      <SimpleForm/>
         <Form.Group widths='equal'>
           <Form.Input label='Full name' placeholder='Full name' />
           <Form.Input label='Last name' placeholder='Last name' />
