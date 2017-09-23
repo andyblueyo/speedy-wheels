@@ -99,7 +99,7 @@ class RequestForm extends Component {
         <div className="smallBox">
         <Header as='h2' icon='bus' content='Request Shuttle' />
 
-        <Form>
+        <SimpleForm/>
           <Form.Group widths='equal'>
             <Form.Input label='Full name' placeholder='Full name' />
             <Form.Input label='Last name' placeholder='Last name' />
@@ -113,7 +113,6 @@ class RequestForm extends Component {
           </Form.Group>
           <Form.TextArea label='About' placeholder='Comments...' />
           <Form.Button onSubmit={console.log(this.processRequest())}>Submit</Form.Button>
-        </Form>
       </div>
     );
   }
