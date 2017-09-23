@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Header, Container } from 'semantic-ui-react'
-import { SimpleForm } from './MyGoogleSuggest';
+import SimpleForm  from './MyGoogleSuggest';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
@@ -28,9 +28,9 @@ class RequestForm extends Component {
         </Form.Group>
         <Form.Group inline>
           <label>Notifications</label>
-          <Form.Radio label='Small' value='sm' checked={value === 'sm'} onChange={this.handleChange} />
-          <Form.Radio label='Medium' value='md' checked={value === 'md'} onChange={this.handleChange} />
-          <Form.Radio label='Large' value='lg' checked={value === 'lg'} onChange={this.handleChange} />
+          <Form.Radio label='Text' value='sm' checked={value === 'sm'} onChange={this.handleChange} />
+          <Form.Radio label='Phone' value='md' checked={value === 'md'} onChange={this.handleChange} />
+          <Form.Radio label='Email' value='lg' checked={value === 'lg'} onChange={this.handleChange} />
         </Form.Group>
         <Form.TextArea label='About' placeholder='Comments...' />
         <Form.Button>Submit</Form.Button>
