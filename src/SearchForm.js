@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
 
-class SearchForm extends Component {
+class RequestForm extends Component {
   state = {showEmailAddress: false, showPhoneNumber: false}
 
   handleChange = (e, { value }) => {
@@ -136,4 +136,4 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm;
+export default RequestForm;
