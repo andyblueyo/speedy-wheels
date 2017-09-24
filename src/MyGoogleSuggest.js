@@ -6,7 +6,6 @@ class SimpleForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = { address: 'San Francisco, CA' }
-    // this.onChange = (address) => this.setState({ address })
   }
 onChange =(address) => {
 this.setState({ address });
@@ -21,18 +20,6 @@ geocodeByAddress(this.state.address)
   this.props.onChange(this.state);
 
 }
-  // handleFormSubmit = (event) => {
-  //   event.preventDefault()
-  //
-  //   geocodeByAddress(this.state.address)
-  //     .then(results => getLatLng(results[0]))
-  //     .then(latLng => {
-  //       console.log("firing");
-  //       this.setState({ lat: latLng.lat , long: latLng.lng })
-  //       console.log(this.state);
-  //     })
-  //     .catch(error => console.error('Error', error))
-  // }
 
   processRequest = () => {
     const lat = 47.559440;
