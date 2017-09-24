@@ -8,7 +8,7 @@ import $ from 'jquery'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 const position = [51.505, -0.09];
 
-class SearchForm extends Component {
+class RequestForm extends Component {
   state = {showEmailAddress: false, showPhoneNumber: false, value:{}}
   constructor(props) {
      super(props);
@@ -143,9 +143,8 @@ class SearchForm extends Component {
           </div>
         </div>
         <Form onSubmit={this.handleSubmit}>
-        <Form.Group widths='equal'>
         <Divider horizontal>Basic Information</Divider>
-        <Grid columns='two' divided>
+        <Grid columns='two'>
             <Grid.Row>
               <Grid.Column>
                 <Form.Field>
@@ -175,10 +174,7 @@ class SearchForm extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-        </Form.Group>
         <Divider horizontal></Divider>
-
-          <Form.Group>
           <label>Notifications</label>
             <Form.Radio label='Text' value='sm' checked={value === 'sm'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
             <Form.Radio label='Phone Call' value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
@@ -193,13 +189,9 @@ class SearchForm extends Component {
                 <Form.Input label='' placeholder='Email'  onChange={this.handleChange}/>
               </div>
             }
-          </Form.Group>
-
-          <Form.Group>
           <Divider horizontal>Other</Divider>
           <label className="spanMarign">About</label>
           <Form.TextArea label='' placeholder='Comments...' className="TextAreaFulLWidth" />
-          </Form.Group>
 
           <Form.Button>Submit</Form.Button>
           </Form>
@@ -212,4 +204,4 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm;
+export default RequestForm;
