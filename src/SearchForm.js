@@ -3,6 +3,8 @@ import { Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky,
 import SimpleForm  from './MyGoogleSuggest';
 import CardBottom  from './CardBottom';
 import ResultCard from './ResultCard';
+import MyMap from './MyMap';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
@@ -145,6 +147,7 @@ class SearchForm extends Component {
   </div>
 </Sticky>
       <div className="customerResult">
+        <MyMap />
         <Card.Group itemsPerRow={3}>
 
           <ResultCard
