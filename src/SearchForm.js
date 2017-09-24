@@ -35,7 +35,7 @@ const Mobilityoptions = [
 ]
 
 class SearchForm extends Component {
-  state = {showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}, listOfServices: services_json.services}
+  state = {addLists: [], showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}, listOfServices: services_json.services}
   constructor(props) {
      super(props);
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
@@ -127,6 +127,13 @@ class SearchForm extends Component {
     console.log(this.state.showMenuInfo);
     this.setState({showMenuInfo: !this.state.showMenuInfo})
   }
+
+  addtoList(index){
+    var lists = this.state.addLists;
+  this.setState({addLists: lists.push(index)});
+  console.log(this.state.addLists);
+
+  }
   render() {
     const { value } = this.state
     const { contextRef } = this.state
@@ -145,6 +152,15 @@ const serversData = services_json.services || [];
               </div>
           <Menu.Menu position='right'  className="myCustomerHeaders">
             <Menu.Item>
+              {this.state.addLists.length > 0 &&
+                <Button color="blue">
+                  <a href="/" className="white">
+                Add to List - {this.state.addLists.length}
+
+                <Icon name='chevron right'></Icon>
+              </a>
+              </Button>
+              }
               <Button color="blue">
                 <a href="/" className="white">
               Request&nbsp;&nbsp;
@@ -262,6 +278,7 @@ const serversData = services_json.services || [];
           rating={x.rating}
           requirements={x.requirements || {}}
           index={index}
+          addtoList={this.addtoList}
         />
 
       )}
