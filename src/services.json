@@ -59,6 +59,7 @@
     "Yarrow Point" : [ "98004" ]
   },
   "services" : [ {
+    "associated_hoods" : "all",
     "info" : "Use the transportation provider of your choice to go wherever you wish. APDA will reimburse up to $300 per year for eligible travel expenses such as taxi, bus, ferry, or rail fare, or gasoline expenses.",
     "operator" : "American Parkinson’s Disease Association (APDA)",
     "phone" : "206-695-2905",
@@ -68,6 +69,7 @@
     "shuttlenam" : "Ride Repay",
     "website" : "www.apdanorthwest.org"
   }, {
+    "associated_hoods" : "all",
     "info" : "Provides transportation to and from treatment for people with cancer who do not have a ride or are unable to drive themselves.",
     "operator" : "American Cancer Society",
     "phone" : "1-800-227-2345",
@@ -77,6 +79,7 @@
     "shuttlenam" : "Road to Recovery",
     "website" : "www.cancer.org"
   }, {
+    "associated_hoods" : "all",
     "info" : "Provides transportation to and from treatment for people with cancer who do not have a ride or are unable to drive themselves.",
     "operator" : "Catholic Community Services",
     "phone" : "206-323-6336",
@@ -92,6 +95,7 @@
     "shuttlenam" : "Volunteer Services Program",
     "website" : "www.ccsww.org"
   }, {
+    "associated_hoods" : "all",
     "info" : "Coordinates medical transportation for Medicaid patients with a ProviderOne Medicaid ID.",
     "operator" : "Hopelink",
     "phone" : "800-923-7433",
@@ -102,6 +106,7 @@
     "tty" : "800-246-1646",
     "website" : "www.hopelink.org"
   }, {
+    "associated_hoods" : "all",
     "info" : "Offers service from both Seacrest Park in West Seattle and Vashon Island’s ferry terminal to Pier 50 on the Seattle waterfront. If you need assistance boarding the vessel, please inform a crew member.",
     "operator" : "King County",
     "phone" : "206-684-1551",
@@ -112,6 +117,7 @@
     "tty" : "711",
     "website" : "www.kingcounty.gov"
   }, {
+    "associated_hoods" : [ "Northshore" ],
     "info" : "Transportation to and from the Senior Center, medical appointments, and local shopping for seniors and people with disabilities. Contact Northshore Senior Center to confirm details and service boundaries.",
     "operator" : "Northshore Senior Center",
     "phone" : "425-286-1026",
@@ -121,18 +127,21 @@
     "shuttlenam" : "Northshore Transportation",
     "website" : "www.northshoreseniorcenter.org"
   }, {
+    "associated_hoods" : "all",
     "info" : "Ridematching for daily commutes or trips to special events.",
     "operator" : "Rideshare Operations",
     "phone" : "206-625-4500",
     "shuttlenam" : "Rideshare",
     "website" : "www.rideshareonline.com"
   }, {
+    "associated_hoods" : [ "Seattle" ],
     "info" : "Travels between Seattle Center and Westlake Center Mall. CASH ONLY-- does not accept ORCA cards.",
     "operator" : "Seattle Center Monorail",
     "phone" : "206-905-2620",
     "shuttlenam" : "Monorail",
     "website" : "www.seattlemonorail.com"
   }, {
+    "associated_hoods" : [ "Seattle" ],
     "info" : "Streetcar route that features a minimal gap between platform and streetcar with wheelchair ramps that automatically deploy by pressing a button.",
     "operator" : "Seattle Streetcar",
     "phone" : "206-553-3000",
@@ -143,6 +152,7 @@
     "tty" : 711,
     "website" : "www.seattlestreetcar.org"
   }, {
+    "associated_hoods" : [ "Seattle" ],
     "info" : "Streetcar route that features a minimal gap between platform and streetcar with wheelchair ramps that automatically deploy by pressing a button.",
     "operator" : "Seattle Streetcar",
     "phone" : "206-553-3000",
@@ -153,6 +163,7 @@
     "tty" : 711,
     "website" : "www.seattlestreetcar.org"
   }, {
+    "associated_hoods" : "all",
     "info" : "FREE accessible Downtown Circulator Bus for people living on low incomes and those who access health and human services in the downtown area.",
     "operator" : "Solid Ground",
     "phone" : "206-753-4801",
@@ -163,6 +174,7 @@
     "tty" : 711,
     "website" : "www.solid-ground.org"
   }, {
+    "associated_hoods" : [ "North Bend", "Snoqualmie", "Fall City", "Preston" ],
     "info" : "North Bend, Snoqualmie, Fall City, and Preston residents, call 425-888-7001. This service is for senior residents of King County for medical appointments only. Must be able to get in and out of a car without help. Available Monday to Friday, 8AM to 5PM. Call by Tuesday for any rides the following week.",
     "operator" : "Sound Generations",
     "phone" : "206-448-5740",
@@ -175,6 +187,7 @@
     "shuttlenam" : "Volunteer Transportation Program",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : "all",
     "info" : "Regional bus, light rail, & commuter rail serving King, Pierce, and Snohomish Counties.",
     "operator" : "Sound Transit",
     "phone" : "206-398-5000",
@@ -182,12 +195,14 @@
     "tty" : 711,
     "website" : "www.soundtransit.org"
   }, {
+    "associated_hoods" : "all",
     "info" : "Wheelchair Accessible Taxis (WATs) are available 24/7/365 to provide on-demand, door-to-door service throughout King County. Ramp-equipped WATs are capable of carrying a 700 pound wheelchair and 3-4 passengers. For best service, download the SeattleYellowCab and \"Tap the App\".",
     "operator" : "Yellow Cab",
     "phone" : "206-622-6500",
     "shuttlenam" : "Wheelchair Accessible Taxi",
     "website" : "www.seattleyellowcab.com"
   }, {
+    "associated_hoods" : "all",
     "info" : "A shared-ride van service for people whose disabilities prevent them from using accessible, non-commuter, fixed route bus service. Before using Access ADA paratransit service, a person must be determined eligible. Call or visit us online to request an application.",
     "operator" : "King County",
     "phone" : "206-263-3113",
@@ -198,6 +213,7 @@
     "tty" : 711,
     "website" : "www.kingcounty.gov"
   }, {
+    "associated_hoods" : "all",
     "info" : "DART can travel off its normal route to serve other locations within the DART service areas. You may need to get on or off the van at a location a block or more from your home or destination. DART service is available to everyone. Call to request off-route trips.",
     "operator" : "King County",
     "phone" : "866-261-3278",
@@ -205,6 +221,7 @@
     "tty" : "800-246-1646",
     "website" : "www.kingcounty.gov"
   }, {
+    "associated_hoods" : "all",
     "info" : "Fixed route bus service in King County. All Metro buses have lifts or ramps for wheelchair and scooter users and others who use a walker or cane or simply have trouble climbing steps. You will need to get on and off the bus at an accessible bus stop. The bus stop sign will be marked with one of three stickers. The \"No Lift\" sign indicates a mobility device cannot board or disembark.",
     "operator" : "King County",
     "phone" : "206-553-3000",
@@ -212,6 +229,7 @@
     "tty" : 711,
     "website" : "www.kingcounty.gov"
   }, {
+    "associated_hoods" : "all",
     "info" : "RapidRide is a distinctive red bus that operates 7 days a week. RapidRide gives riders a streamlined service to destinations along the routes and to places where they can transfer to other buses and light rail.",
     "operator" : "King County",
     "phone" : "206-553-3000",
@@ -219,12 +237,14 @@
     "tty" : 711,
     "website" : "www.kingcounty.gov"
   }, {
+    "associated_hoods" : [ "Redmond" ],
     "info" : "Developed in partnership between Metro and the City of Redmond, the LOOP is a new travel resource that offers a convenient way to access destinations in Education Hill, Avondale, Southeast Redmond, and Downtown Redmond.",
     "operator" : "City of Redmond",
     "phone" : "425-702-9616",
     "shuttlenam" : "LOOP",
     "website" : "www.remond.gov/LOOP"
   }, {
+    "associated_hoods" : "all",
     "info" : "Serves low-income King County residents who have a Regional Reduced Fare Permit (RRFP). Scrip does not expire and is not refundable. Once registered, you can buy up to seven books of taxi scrip each month from Metro at a 50 percent discount.",
     "operator" : "King County",
     "phone" : "206-553-3000",
@@ -235,6 +255,7 @@
     "tty" : 711,
     "website" : "www.kingcounty.gov"
   }, {
+    "associated_hoods" : "all",
     "info" : "Two free shuttles operate between local neighborhoods and the Water Taxi. Route 773 serves West Seattle Junction. Route 775 serves the Admiral District and Alki Avenue SW.",
     "operator" : "King County",
     "phone" : "206-684-1551",
@@ -242,6 +263,7 @@
     "tty" : 711,
     "website" : "www.kingcounty.gov"
   }, {
+    "associated_hoods" : [ "Auburn" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -251,6 +273,7 @@
     "shuttlenam" : "Auburn Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Beacon Hill", "Seattle" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome. Also travels to First Hill Medical Centers",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -260,6 +283,7 @@
     "shuttlenam" : "Beacon Hill/ Southeast Seattle Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Burien" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -269,6 +293,7 @@
     "shuttlenam" : "Burien Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Seattle" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome. Includes First Hill, Capitol Hill, Central area, and the International District.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -278,6 +303,7 @@
     "shuttlenam" : "Central Seattle Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Des Moines", "Normandy Park" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome. Also travels to Federal Way on Fridays only. Shuttle travels north to 136th in Burien.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -287,6 +313,7 @@
     "shuttlenam" : "Des Moines/ Normandy Park Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Federal Way" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -296,6 +323,7 @@
     "shuttlenam" : "Federal Way Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Seattle", "Northeast" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome. Also travels to Northwest Hospital and medical facilities.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -305,6 +333,7 @@
     "shuttlenam" : "Northeast Seattle Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Seattle", "Northwest" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome. Also travels to Northgate Mall, and Northgate medical facilities.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -314,6 +343,7 @@
     "shuttlenam" : "Northwest Seattle Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Queen Anne", "Seattle" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -323,6 +353,7 @@
     "shuttlenam" : "Queen Anne/ Magnolia/ Interbay Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Renton" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -332,6 +363,7 @@
     "shuttlenam" : "Renton Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "SeaTac", "Tukwila" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome. Also travels to Franciscan Medical Center.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -341,6 +373,7 @@
     "shuttlenam" : "SeaTac/ Tukwila Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Shoreline", "Lake Forest Park", "Lk Forest Park", "Lk Forest Pk" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome. Also travels to Nortwest Hospital and Northwest medical facilities, Northgate Mall, and Northgate medical facilities.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -350,6 +383,7 @@
     "shuttlenam" : "Shoreline/ Lake Forest Park Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "West Seattle" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome. Also travels to First Hill medical centers.",
     "operator" : "Sound Generations",
     "phone" : "206-727-6262",
@@ -359,6 +393,7 @@
     "shuttlenam" : "West Seattle Hyde Shuttle",
     "website" : "www.soundgenerations.org"
   }, {
+    "associated_hoods" : [ "Snoqualmie" ],
     "info" : "Free van service for seniors 55 or older and people with disabilities. Operates Monday through Friday from 8:00 AM to 4:30 PM. Ride anywhere within your neighborhood service area. There is no service in downtown Seattle. There is no chare for service but donations are welcome.",
     "operator" : "Sound Generations",
     "phone" : "425-333-4009",
