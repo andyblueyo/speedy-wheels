@@ -20,6 +20,8 @@
     "react-leaflet": "^1.6.6",
     "react-places-autocomplete": "^5.4.3",
     "react-router": "^4.1.1",
+    "react-toggle": "^4.0.1",
+    "react-toggle-display": "^2.2.0",
     "recharts": "^1.0.0-alpha.2"
   },
   "devDependencies": {
