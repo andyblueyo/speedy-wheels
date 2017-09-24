@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Form, Header, Container, Divider, Grid } from 'semantic-ui-react'
+import { Form, Header, Container, Divider, Grid, Button } from 'semantic-ui-react'
 import SimpleForm  from './MyGoogleSuggest';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+const position = [51.505, -0.09];
 
 class SearchForm extends Component {
   state = {showEmailAddress: false, showPhoneNumber: false}
@@ -52,7 +54,21 @@ class SearchForm extends Component {
     handleSubmit = (e, { value }) => {
       console.log("eva: e", e)
         console.log("eva: value", value)
-        if(this.state.showEmailAddress){}
+        if(this.state.showEmailAddress){
+          console.log("sending request!");
+          $.ajax({
+            url: "http://localhost:4200/sendemail",
+            type: "GET",
+            data: {
+              "$limit" : 5000,
+              "$$app_token" : "ZblfCkOVREKx1lb1pdaqTTYud"
+            }
+          }).done(function(data) {
+            // console.log(data);
+            //console.log("eva: data" ,data);
+          });
+
+        }
         var request = {}
         request.name = "Eva"
         request.origin = "4560 34th Ave S, Seattle, WA 98118"
@@ -71,11 +87,35 @@ class SearchForm extends Component {
   tooglePhoneForm= ()=>{
     this.setState({showPhoneNumber: !this.state.showPhoneNumber});
   }
+
+  onChangeOrigin(data){
+      console.log("onChangeDestination Data", data);
+  }
+
+  onChangeDestination(data){
+      console.log("onChangeDestination Data", data);
+  }
   render() {
     const { value } = this.state
       return (
+        <div>
         <div className="smallBox">
-        <Header as='h2' icon='bus' content='Request Shuttle' />
+        <div>
+          <Header as='h2' icon='bus' content='Request Shuttle' />
+          <div>
+          <label>Text Size</label>
+          <span className="spanMarign"></span>
+            <Button size='tiny'>
+              A
+            </Button>
+            <Button size='small'>
+              A
+            </Button>
+            <Button size='medium'>
+              A
+            </Button>
+          </div>
+        </div>
         <Form.Group widths='equal'>
         <Divider horizontal>Basic Information</Divider>
         <Grid columns='two' divided>
@@ -83,13 +123,13 @@ class SearchForm extends Component {
               <Grid.Column>
                 <Form.Field>
                   <label>From</label>
-                  <SimpleForm/>
+                  <SimpleForm onChange={this.onChangeOrigin}/>
                 </Form.Field>
               </Grid.Column>
               <Grid.Column>
                 <Form.Field>
                   <label>To</label>
-                  <SimpleForm/>
+                  <SimpleForm onChange={this.onChangeDestination}/>
                 </Form.Field>
               </Grid.Column>
             </Grid.Row>
@@ -116,21 +156,29 @@ class SearchForm extends Component {
             <Form.Radio label='Text' value='sm' checked={value === 'sm'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
             <Form.Radio label='Phone Call' value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
             {this.state.showPhoneNumber&&
-              <Form.Input label='Phone Number' placeholder='Email' />
+              <div>
+                <Form.Input label='' placeholder='Phone' />
+              </div>
             }
             <Form.Radio label='Email' value='md' checked={value === 'md'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.toggleEmailForm()}} />
             {this.state.showEmailAddress&&
-              <Form.Input label='Email' placeholder='Email' />
+              <div>
+                <Form.Input label='' placeholder='Email' />
+              </div>
             }
           </Form.Group>
 
           <Form.Group>
           <Divider horizontal>Other</Divider>
-
-          <Form.TextArea label='About' placeholder='Comments...' />
+          <label className="spanMarign">About</label>
+          <Form.TextArea label='' placeholder='Comments...' className="TextAreaFulLWidth" />
           </Form.Group>
 
           <Form.Button onSubmit={console.log(this.processRequest())}>Submit</Form.Button>
+      </div>
+      <div className="customerResult">
+
+      </div>
       </div>
     );
   }
