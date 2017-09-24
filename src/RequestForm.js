@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Header, Container, Divider, Grid, Button } from 'semantic-ui-react'
+import { Modal, Icon, Form, Header, Container, Divider, Grid, Button } from 'semantic-ui-react'
 import SimpleForm  from './MyGoogleSuggest';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -9,7 +9,7 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 const position = [51.505, -0.09];
 
 class RequestForm extends Component {
-  state = {showEmailAddress: false, showPhoneNumber: false, value:{}}
+  state = {showEmailAddress: false, showPhoneNumber: false, value:{}, open: false}
   constructor(props) {
      super(props);
     this.state = {showEmailAddress: false, showPhoneNumber: false, showResults: false, result: {}}
@@ -140,6 +140,8 @@ class RequestForm extends Component {
       originalVal["destination"] = data;
       this.setState({value:originalVal });
   }
+  show =() => () => this.setState({  open: true })
+ close = () => this.setState({ open: false })
   render() {
     const { value } = this.state
       return (
@@ -161,7 +163,7 @@ class RequestForm extends Component {
             </Button>
           </div>
         </div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={ (e, { value }) => {this.handleSubmit(e, { value }); this.show()}}>
         <Divider horizontal>Basic Information</Divider>
         <Grid columns='two'>
             <Grid.Row>
@@ -216,7 +218,21 @@ class RequestForm extends Component {
           </Form>
       </div>
       <div className="customerResult">
-
+        <Modal size={'tiny'} open={this.state.open} onClose={this.close}>
+              <Modal.Header>
+                Your Information Has been Sent.
+                {/* {this.state.value.email && <div>You send email to {this.state.value.email}</div>} */}
+              </Modal.Header>
+              <Modal.Content>
+                <Icon circular name='check' color="green" size='big' />
+              </Modal.Content>
+              <Modal.Actions>
+                {/* <Button negative>
+                  No
+                </Button> */}
+                <Button positive icon='checkmark' labelPosition='right' content='Close' />
+              </Modal.Actions>
+            </Modal>
       </div>
 
       </div>

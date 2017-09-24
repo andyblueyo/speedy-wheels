@@ -34,12 +34,13 @@ const Mobilityoptions = [
 ]
 
 class SearchForm extends Component {
-  state = {showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}}
+  state = {showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}, listOfServices: services_json.services}
   constructor(props) {
      super(props);
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
      this.onChangeDestination = this.onChangeDestination.bind(this);
      this.toggleBar = this.toggleBar.bind(this);
+
    }
 
   handleChange = (e, { value }) => {
@@ -91,7 +92,7 @@ class SearchForm extends Component {
     }
 
     console.log("eva: results", results)
-
+    this.setState({listOfServices: results});
   }
 
   toggleEmailForm=()=>{
@@ -240,10 +241,10 @@ const serversData = services_json.services || [];
         </Menu.Menu>
     </Menu>
     <Item.Group divided>
-      {serversData.map(x =>
+      {this.state.listOfServices.map(x =>
         <ItemCard
           imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
-          title={x.operator}
+          title={x.shuttlenam}
           url={x.website}
           phone={x.phone}
           content={x.info}
