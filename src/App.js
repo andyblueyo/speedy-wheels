@@ -63,8 +63,6 @@ class App extends Component {
     }
   }
   render() {
-    const { activeItem } = this.state
-
     return (
       <div className="container">
         <div className="row">
