@@ -241,6 +241,19 @@ const serversData = services_json.services || [];
               A
             </Button>
           </div>
+          <div className="textButtons">
+          <label>Change language</label>
+          <span className="spanMarign"></span>
+            <Button size='small'>
+              Español
+            </Button>
+            <Button size='small'>
+              Swahili
+            </Button>
+            <Button size='small'>
+              Tiếng Việt
+            </Button>
+          </div>
         </div>
         <Form onSubmit={this.handleSubmit}>
         <Divider horizontal>Basic Information</Divider>
