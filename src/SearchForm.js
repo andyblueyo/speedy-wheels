@@ -240,13 +240,13 @@ const serversData = services_json.services || [];
           <div className="textButtons">
           <label>Change language</label>
           <span className="spanMarign"></span>
-            <Button size='medium'>
+            <Button size='small'>
               Español
             </Button>
-            <Button size='medium'>
+            <Button size='small'>
               Swahili
             </Button>
-            <Button size='medium'>
+            <Button size='small'>
               Tiếng Việt
             </Button>
           </div>
