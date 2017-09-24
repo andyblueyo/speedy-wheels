@@ -1,5 +1,7 @@
 
 # speedy-wheels
+## Running this Website
+On your local machine run `npm install` and `npm start`
 ## Data
 ### Input
 ```
