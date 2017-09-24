@@ -1,5 +1,4 @@
 .smallBox{
-align-self: baseline;
   width: 400px;
   padding: 20px 50px;
   /*border: 2px solid;*/
@@ -16,6 +15,7 @@ align-self: baseline;
 .stickeySidebar {
 /*color: green;*/
   /*width: 500px;*/
+
 }
 .marignTop80{
   margin-top: 80px;
@@ -129,4 +129,15 @@ margin-top: 20px!important;
 .ratingText{
   color: orange;
   font-size: 20px;
-}
+  }
+
+.southKing{
+      color: '#006400';
+      weight: 5;
+      opacity: 0.65;
+  }
+  .northKing{
+    color: '#ffffff';
+    weight: 5;
+    opacity: 0.65;
+  }

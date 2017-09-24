@@ -12,7 +12,7 @@ class RequestForm extends Component {
   state = {showEmailAddress: false, showPhoneNumber: false, value:{}}
   constructor(props) {
      super(props);
-
+    this.state = {showEmailAddress: false, showPhoneNumber: false, showResults: false, result: {}}
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
      this.onChangeDestination = this.onChangeDestination.bind(this);
    }
@@ -62,12 +62,34 @@ class RequestForm extends Component {
     //     //console.log("eva: data" ,data);
     //   });
     // }
+    getResponse = (lat, long) => {
+      let constructed_url = "https://data.kingcounty.gov/resource/xhy5-rgaa.json?$where=intersects(the_geom, 'POINT ("
+      constructed_url += long.toString()
+      constructed_url += " "
+      constructed_url += lat.toString()
+      constructed_url += ")')"
+
+      $.ajax({
+        //https://data.seattle.gov/resource/n99g-k8uj.json?$where=intersects(the_geom,%20%27POINT%20(-122.4218242%2047.662893)%27)
+        url: constructed_url,
+        type: "GET",
+        dataType: 'json',
+        data: {
+          "$limit" : 5000,
+          "$$app_token" : "ZblfCkOVREKx1lb1pdaqTTYud"
+        },
+        success: function (data) {
+          this.setState({result: data});
+        }.bind(this)
+      });
+    }
+
 
     handleSubmit = (e, { value }) => {
       e.preventDefault();
       console.log("eva: e", e)
         console.log("eva: value", this.state.value)
-        
+
         if(this.state.showEmailAddress){
           console.log("sending request!");
           $.ajax({
@@ -95,7 +117,7 @@ class RequestForm extends Component {
         // console.log("eva: handleSubmit",this.getResponse(request))
     }
   toggleEmailForm=()=>{
-    this.setState({showEmailAddress: !this.state.showEmailAddress});
+    this.setState({showResults: !this.state.showResults});
   }
 
   tooglePhoneForm= ()=>{
@@ -196,9 +218,10 @@ class RequestForm extends Component {
       <div className="customerResult">
 
       </div>
+
       </div>
     );
   }
-}
+};
 
 export default RequestForm;
