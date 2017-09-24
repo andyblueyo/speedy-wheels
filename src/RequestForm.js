@@ -8,6 +8,8 @@ import $ from 'jquery'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 const position = [51.505, -0.09];
 
+var services_json = require("./services.json")
+
 class RequestForm extends Component {
   state = {showEmailAddress: false, showPhoneNumber: false, value:{}}
   constructor(props) {
@@ -68,9 +70,54 @@ class RequestForm extends Component {
     // }
 
     handleSubmit = (e, { value }) => {
-      e.preventDefault();
-      console.log("eva: e", e)
+        e.preventDefault();
+        console.log("eva: e", e)
         console.log("eva: value", this.state.value)
+
+        var originZipcode = "98001"
+        var desZipcode = "98003"
+        var age = 67
+        var mobility = undefined
+        var date = "2017/10/02" // check which date it is in the week
+        var time = "10:00:00"
+        var ifNeedReturn = true
+        var ifMedicalApt = true
+
+        var results = []
+
+        for (var i in services_json.services) {
+            var service = services_json.services[i]
+            var allZips = new Set([])
+            console.log("eva: service", service)
+            for (var j in service.associated_hoods) {
+              var neighborhood = service.associated_hoods[j]
+                if (neighborhood == "all") {
+                    for (var name in services_json.associated_zips) {
+                      for (var n in services_json.associated_zips[name]) {
+                          allZips.add(services_json.associated_zips[name][n])
+                      }
+                    }
+                } else {
+                    for (var n in services_json.associated_zips[neighborhood]) {
+                        allZips.add(services_json.associated_zips[neighborhood][n])
+                    }
+                }
+                console.log("eva: neighborhood ",neighborhood)
+
+            }
+            console.log("eva: allZips", allZips)
+            if ((allZips.has(originZipcode)) && (allZips.has(desZipcode))) {
+              if (service.requirements) {
+                if (service.requirements.age && (service.requirements.age >= age)) {
+                  continue
+                }
+              }
+              results.push(service)
+            }
+        }
+
+        console.log("eva: results", results)
+
         if(this.state.showEmailAddress){
           console.log("sending request!");
           $.ajax({
@@ -86,15 +133,15 @@ class RequestForm extends Component {
           });
 
         }
-        var request = {}
-        request.name = "Eva"
-        request.origin = "4560 34th Ave S, Seattle, WA 98118"
-        request.destination = "325 9th Ave, Seattle, WA 98104"
-        request.age = 65
-        request.date = "2017/10/02"
-        request.time = "10:00:00"
-        request.ifNeedReturn = true
-        request.ifMedicalApt = false
+        // var request = {}
+        // request.name = "Eva"
+        // request.origin = "4560 34th Ave S, Seattle, WA 98118"
+        // request.destination = "325 9th Ave, Seattle, WA 98104"
+        // request.age = 65
+        // request.date = "2017/10/02"
+        // request.time = "10:00:00"
+        // request.ifNeedReturn = true
+        // request.ifMedicalApt = false
         // console.log("eva: handleSubmit",this.getResponse(request))
     }
   toggleEmailForm=()=>{
