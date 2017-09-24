@@ -220,9 +220,7 @@ const serversData = services_json.services || [];
         <Checkbox label='Will need return trip' name="isReturnTrip"  onChange={this.handleChange}/>
 
 
-        <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={(e, {value}) => this.handleChange(e, {value}, 'age')} />
-        <Dropdown placeholder='Mobility' fluid multiple search selection options={stateOptions} />
-        {/* <Form.Select label='Age' name="age" options={options} placeholder='Select your age' onChange={this.handleChange} /> */}
+        <Form.Select label='Age' name="age" options={options} placeholder='Select your age' onChange={(e, {value}) => this.handleChange(e, {value}, 'age')} />
         <label>Accessibility Needs</label>
         <Dropdown placeholder='Select all that apply' fluid multiple search selection options={Mobilityoptions} />
         <Checkbox label='Is this for a medical trip?' name="isMedicalTrip"  onChange={this.handleChange}/>
