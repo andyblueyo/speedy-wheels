@@ -15,17 +15,21 @@ class RequestForm extends Component {
     this.state = {showEmailAddress: false, showPhoneNumber: false, showResults: false, result: {}}
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
      this.onChangeDestination = this.onChangeDestination.bind(this);
+     this.handleChange = this.handleChange.bind(this);
+     this.toggleEmailForm = this.toggleEmailForm.bind(this);
    }
-  handleChange = (e, { value }) => {
-    var originalVal = this.state.value;
-    var nameAtr = e.target.name || '';
-    if(nameAtr){
-      console.log("originalVal", originalVal);
-
-      originalVal[nameAtr] = value;
-      this.setState({ value:originalVal })
-    }
-  }
+   handleChange = (e, { value }, nameTag) => {
+     console.log("onchange", e, value,"name", e.target.name);
+     var originalVal = this.state.value || {};
+     var nameAtr = e.target.name || '';
+     if(!nameAtr && nameTag){
+       nameAtr = nameTag;
+     }
+     if(nameAtr){
+       originalVal[nameAtr] = value;
+       this.setState({ value: originalVal })
+     }
+   }
 
     getResponse = (lat, long) => {
       let constructed_url = "https://data.kingcounty.gov/resource/xhy5-rgaa.json?$where=intersects(the_geom, 'POINT ("
@@ -81,11 +85,11 @@ class RequestForm extends Component {
         request.ifMedicalApt = false
         // console.log("eva: handleSubmit",this.getResponse(request))
     }
-  toggleEmailForm=()=>{
-    this.setState({showResults: !this.state.showResults});
+  toggleEmailForm(){
+    this.setState({showEmailAddress: !this.state.showEmailAddress});
   }
 
-  tooglePhoneForm= ()=>{
+  tooglePhoneForm(){
     this.setState({showPhoneNumber: !this.state.showPhoneNumber});
   }
 
@@ -147,14 +151,14 @@ class RequestForm extends Component {
           </Grid>
         <Divider horizontal></Divider>
           <label>Notifications</label>
-            <Form.Radio label='Text' value='sm' checked={value === 'sm'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
-            <Form.Radio label='Phone Call' value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
+            <Form.Radio label='Text' value='sm'  name="textR" checked={value === 'sm'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
+            <Form.Radio label='Phone Call' name="Phoner" value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
             {this.state.showPhoneNumber&&
               <div>
                 <Form.Input label='' placeholder='Phone' name="phone" onChange={this.handleChange} />
               </div>
             }
-            <Form.Radio label='Email' value='md' checked={value === 'md'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.toggleEmailForm()}} />
+            <Form.Radio label='Email' name="emailRadio" value='md' checked={value === 'md'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.toggleEmailForm()}} />
             {this.state.showEmailAddress&&
               <div>
                 <Form.Input label='' placeholder='Email' name="email"  onChange={this.handleChange}/>
