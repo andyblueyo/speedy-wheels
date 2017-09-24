@@ -40,7 +40,7 @@ class SearchForm extends Component {
   state = {addLists: [], showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}, listOfServices: services_json.services,  open: false}
 
     // show = size => () => this.setState({ size, open: true })
-    close = () => this.setState({ open: !this.state.open })
+    toogleModelForRequest = () => this.setState({ open: !this.state.open })
 
   constructor(props) {
      super(props);
@@ -48,7 +48,7 @@ class SearchForm extends Component {
      this.onChangeDestination = this.onChangeDestination.bind(this);
      this.toggleBar = this.toggleBar.bind(this);
      this.handleChange = this.handleChange.bind(this);
-
+     this.addtoList= this.addtoList.bind(this);
    }
 
   handleChange = (e, { value }, nameTag) => {
@@ -135,8 +135,10 @@ class SearchForm extends Component {
   }
 
   addtoList(index){
-    var lists = this.state.addLists;
-  this.setState({addLists: lists.push(index)});
+    console.log("call parent", index);
+    var lists = this.state.addLists || [];
+    lists.push(index);
+  this.setState({addLists: lists});
   console.log(this.state.addLists);
 
   }
@@ -161,36 +163,38 @@ const serversData = services_json.services || [];
           <Menu.Menu position='right'  className="myCustomerHeaders">
             <Menu.Item>
               {this.state.addLists.length > 0 &&
-                <Button color="blue">
-                  <a href="/" className="white">
-                Add to List - {this.state.addLists.length}
+                <Button color="blue" onClick={this.toogleModelForRequest}>
+                 {this.state.addLists.length} services Added&nbsp;&nbsp;
 
                 <Icon name='chevron right'></Icon>
-              </a>
               </Button>
               }
-              <Button color="blue">
-                <Modal open={open} onClose={this.close}>
-                  <Modal.Header>
-                    Send requests to selected services
-                  </Modal.Header>
-                  <Modal.Content>
-                  <RequestForm />
-                  </Modal.Content>
-                  {/*<Modal.Actions>*/}
-                    {/*<Button positive icon='checkmark' labelPosition='right' content='Send' />*/}
-                  {/*</Modal.Actions>*/}
-                </Modal>
-                <a href="/" className="white">
-              Request&nbsp;&nbsp;
 
-              <Icon name='chevron right'></Icon>
-            </a>
-            </Button>
+              {this.state.addLists.length  == 0 &&
+                <Button color="blue" onClick={this.toogleModelForRequest}>
+
+                Request&nbsp;&nbsp;
+
+                <Icon name='chevron right'></Icon>
+              </Button>
+              }
+
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-
+        <Modal open={open} size='small' onClose={this.toogleModelForRequest} className="modalHeight">
+          {/* <div className="modalHeight"> */}
+          <Modal.Header>
+            Send requests to selected services
+          </Modal.Header>
+          <Modal.Content>
+          <RequestForm />
+          </Modal.Content>
+          {/*<Modal.Actions>*/}
+            {/*<Button positive icon='checkmark' labelPosition='right' content='Send' />*/}
+          {/*</Modal.Actions>*/}
+        {/* </div> */}
+        </Modal>
         <div></div>
         {this.state.showMenuInfo &&
           <Menu size='massive' className="marginTop60">
@@ -295,7 +299,7 @@ const serversData = services_json.services || [];
           rating={x.rating}
           requirements={x.requirements || {}}
           index={index}
-          addtoList={this.addtoList}
+          addtoListP={this.addtoList}
         />
 
       )}

@@ -9,12 +9,17 @@ import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
 
 class ResultCard extends Component {
+
+    constructor(props) {
+       super(props);
+       this.addtoList = this.addtoList.bind(this);
+     }
 addtoList(){
-  this.props.addtoList(this.props.index);
+  console.log(this.props);
+  this.props.addtoListP(this.props.index);
 
 }
   render() {
-    // console.log(this.props);
       return (
         <Item>
           <Item.Image src={this.props.imgUrl} />

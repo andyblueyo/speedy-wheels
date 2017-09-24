@@ -8,6 +8,11 @@
   border: 2px solid;
 }
 
+
+.requestFormStylge {
+  border: none;
+  margin: auto;
+}
 .customerResult {
   width: calc(100% - 400px);
   font-size: 20px;
@@ -173,4 +178,8 @@ margin-top: 20px!important;
   font-size: 14px !important;
   text-transform: capitalize !important;
   border-radius: 5px;
+}
+
+.modalHeight{
+      height: 80vh;
 }
