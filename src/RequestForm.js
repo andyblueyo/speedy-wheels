@@ -149,13 +149,13 @@ class RequestForm extends Component {
               <Grid.Column>
                 <Form.Field>
                   <label>From</label>
-                  <SimpleForm onChange={this.onChangeOrigin}/>
+                  <SimpleForm onChange={this.onChangeOrigin} placeholder={'RangeWhere are you starting from?'}/>
                 </Form.Field>
               </Grid.Column>
               <Grid.Column>
                 <Form.Field>
                   <label>To</label>
-                  <SimpleForm onChange={this.onChangeDestination}/>
+                  <SimpleForm onChange={this.onChangeDestination} placeholder={'Where would you like to go?'}/>
                 </Form.Field>
               </Grid.Column>
             </Grid.Row>

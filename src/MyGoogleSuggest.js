@@ -5,12 +5,34 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 class SimpleForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { address: 'San Francisco, CA' }
+    this.state = { address: '' }
   }
 onChange =(address) => {
 this.setState({ address });
 geocodeByAddress(this.state.address)
-  .then(results => getLatLng(results[0]))
+  .then(results => {
+    console.log("results",results);
+  console.log("results--first",results[0]);
+  var tempZip = 0;
+  if(results[0]["address_components"]){
+    var addressLists = results[0]["address_components"];
+    var zipCodeArry = addressLists.filter(x => {
+      console.log("x", x);
+      var longName = x["short_name"] || "";
+      if(longName && longName.length == 5 && parseInt(longName) > 0){
+        return longName;
+      }
+
+    });
+    if(zipCodeArry.length > 0){
+      tempZip = zipCodeArry[0]["short_name"] || 0;
+    }
+  }
+  this.setState({ zipCode: tempZip })
+
+   return getLatLng(results[0]);
+
+ })
   .then(latLng => {
     console.log("firing");
     this.setState({ lat: latLng.lat , long: latLng.lng })
@@ -61,6 +83,7 @@ geocodeByAddress(this.state.address)
     const inputProps = {
       value: this.state.address,
       onChange: this.onChange,
+      placeholder: this.props.placeholder
     }
 
     return (
