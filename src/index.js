@@ -15,7 +15,7 @@ import {
   ReactDOM.render(
     <Router>
       <div>
-        <Route exact path="/" component={(props) => <RequestForm {...props}/>} />
+        <Route exact path="/" component={(props) => <SearchForm {...props}/>} />
         <Route path="/home" component={RequestForm}   />
         <Route path="/form" component={RequestForm}   />
         <Route path="/info" component={App}   />

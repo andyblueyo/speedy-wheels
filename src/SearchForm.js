@@ -5,12 +5,12 @@ import CardBottom  from './CardBottom';
 import ResultCard from './ResultCard';
 import ItemCard from './ItemCard';
 import MyMap from './MyMap';
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+var services_jon = require('./services.json');
 const position = [51.505, -0.09];
 const stateOptions = [ { key: 'isMedicalTrip', value: 'isMedicalTrip', text: 'Is this for a medical trip?' },
 { key: 'isImpaired', value: 'isImpaired', text: 'Are you blind/ visually impaired?' },
@@ -78,7 +78,7 @@ class SearchForm extends Component {
   render() {
     const { value } = this.state
     const { contextRef } = this.state
-
+console.log("services_jon", services_jon);
       return (
         <div>
           {/* <Sticky className="myCustomerHeaders"> */}
