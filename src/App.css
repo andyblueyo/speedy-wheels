@@ -14,6 +14,7 @@ align-self: baseline;
 }
 
 .stickeySidebar {
+color: green;
   /*width: 500px;*/
 }
 .marignTop80{
@@ -71,4 +72,9 @@ align-self: baseline;
   background-color: #5cb85c !important;
   color: white;
   font-size: 20px;
+  z-index: 1000;
+}
+.tempBackground {
+  background-color: black;
+  /*height: 100%;*/
 }

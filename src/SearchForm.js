@@ -98,9 +98,9 @@ class SearchForm extends Component {
           </Menu.Menu>
         </Menu>
       {/* </Sticky> */}
-      <div className="wrapper marignTop80">
-        <Sticky context={contextRef} offset="80" className="stickeySidebar">
-        <div>
+      <div className="wrapper marignTop80"  ref={this.handleContextRef}>
+        {/* <div className="tempBackground"> */}
+        <Sticky context={contextRef} offset="80" className="stickeySidebar" bottomOffset="0" onStick={(event, data) => console.log("onStick", event, data)}>
 
         <div className="smallBox">
         <div >
@@ -142,10 +142,13 @@ class SearchForm extends Component {
         <Checkbox label='Do you require door to door service?' />
 
           <Form.Button>Submit</Form.Button>
+          <Divider horizontal></Divider>
+          <Menu.Header as='h3' icon='alarm outline' content='Please let us know if you need any help' className=""/>
+
       </Form>
       </div>
-  </div>
-</Sticky>
+    </Sticky>
+  {/* </div> */}
       <div className="customerResult">
         <MyMap />
         <Card.Group itemsPerRow={3}>
