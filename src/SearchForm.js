@@ -30,7 +30,8 @@ const Mobilityoptions = [
   { key: 'none', text: 'None', value: 'none' },
   { key: 'Wheelchair', text: 'Wheelchair', value: 'Wheelchair' },
   { key: 'Powerchair', text: 'Powerchair', value: 'Powerchair' },
-  { key: 'DoorToDoorService', text: 'Door to Door Service', value: 'DoorToDoorService' },
+  { key: 'PersonalCareAttendant', text: 'Personal Care Attendant', value: 'PersonalCareAttendant' },
+  { key: 'Walker', text: 'Walker', value: 'Walker'}
 
 
 ]
@@ -47,12 +48,17 @@ class SearchForm extends Component {
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
      this.onChangeDestination = this.onChangeDestination.bind(this);
      this.toggleBar = this.toggleBar.bind(this);
+     this.handleChange = this.handleChange.bind(this);
 
    }
 
-  handleChange = (e, { value }) => {
+  handleChange = (e, { value }, nameTag) => {
+    console.log("onchange", e, value,"name", e.target.name);
     var originalVal = this.state.value;
     var nameAtr = e.target.name || '';
+    if(!nameAtr && nameTag){
+      nameAtr = nameTag;
+    }
     if(nameAtr){
       originalVal[nameAtr] = value;
       this.setState({ value:originalVal })
@@ -210,10 +216,10 @@ const serversData = services_json.services || [];
             <Button size='tiny'>
               A
             </Button>
-            <Button size='small'>
+            <Button size='medium'>
               A
             </Button>
-            <Button size='medium'>
+            <Button size='huge'>
               A
             </Button>
           </div>
@@ -232,14 +238,18 @@ const serversData = services_json.services || [];
         <Divider horizontal></Divider>
         <label>Trip Date</label>
         <input type="datetime-local" name="fromTime" onChange={this.handleChange} />
-        <Checkbox label='Is Return Trip' name="isReturnTrip"  onChange={this.handleChange}/>
+        <Checkbox label='Will need return trip' name="isReturnTrip"  onChange={this.handleChange}/>
 
 
-        <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={this.handleChange} />
-        <Dropdown placeholder='Mobility' fluid multiple search selection options={stateOptions} />
+        <Form.Select label='Age' name="age" options={options} placeholder='Select your age' onChange={(e, {value}) => this.handleChange(e, {value}, 'age')} />
+        <label>Accessibility Needs</label>
+        <Dropdown placeholder='Select all that apply' fluid multiple search selection options={Mobilityoptions} />
+        <Checkbox label='Is this for a medical trip?' name="isMedicalTrip"  onChange={this.handleChange}/>
+        <Checkbox label='Are you blind/visually impaired?' name="isImpaired"  onChange={this.handleChange}/>
+        <Checkbox label='Do you require door to door service?' name="isDoorServer"  onChange={this.handleChange}/>
           <Form.Button>Submit</Form.Button>
           <Divider horizontal></Divider>
-          <Menu.Header as='h3' icon='alarm outline' content='Please let us know if you need any help' className=""/>
+          <Menu.Header as='h3' icon='alarm outline' content='Please let us know if you need any help.' className=""/>
 
       </Form>
       </div>
@@ -261,7 +271,7 @@ const serversData = services_json.services || [];
         </Menu.Menu>
     </Menu>
     <Item.Group divided>
-      {this.state.listOfServices.map(x =>
+      {this.state.listOfServices.map((x, index) =>
         <ItemCard
           imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
           title={x.shuttlenam}
@@ -269,6 +279,8 @@ const serversData = services_json.services || [];
           phone={x.phone}
           content={x.info}
           rating={x.rating}
+          requirements={x.requirements || {}}
+          index={index}
         />
 
       )}
