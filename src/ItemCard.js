@@ -9,7 +9,9 @@ import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
 
 class ResultCard extends Component {
-
+addtoList(){
+  
+}
   render() {
     // console.log(this.props);
       return (
@@ -27,7 +29,7 @@ class ResultCard extends Component {
             <Item.Description>{this.props.content}</Item.Description>
             <Item.Extra>
               <div className="buttonGroupsH">
-           <Button color='instagram'  size='medium' className="customerButtonA">
+           <Button color='instagram'  size='medium' className="customerButtonA" onClick={this.addtoList}>
              <Icon name='plus' />
              <span classNames="white">Add to List</span>
            </Button>
@@ -37,8 +39,14 @@ class ResultCard extends Component {
 
            </Button>
           </div>
-              <Label>Limited</Label>
-              <Label>Afforadable</Label>
+          <Divider />
+
+          {/* <Label className="labelTags">Limited</Label> */}
+          {/* <Label className="labelTags">Afforadable</Label> */}
+          {Object.keys(this.props.requirements).map(x =>
+            <Label className="labelTags">{x} : {this.props.requirements[x]}</Label>
+
+          )}
             </Item.Extra>
           </Item.Content>
         </Item>

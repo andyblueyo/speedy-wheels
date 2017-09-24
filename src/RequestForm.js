@@ -201,13 +201,13 @@ class RequestForm extends Component {
             <Form.Radio label='Phone Call' value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
             {this.state.showPhoneNumber&&
               <div>
-                <Form.Input label='' placeholder='Phone' onChange={this.handleChange} />
+                <Form.Input label='' placeholder='Phone' name="phone" onChange={this.handleChange} />
               </div>
             }
             <Form.Radio label='Email' value='md' checked={value === 'md'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.toggleEmailForm()}} />
             {this.state.showEmailAddress&&
               <div>
-                <Form.Input label='' placeholder='Email'  onChange={this.handleChange}/>
+                <Form.Input label='' placeholder='Email' name="email"  onChange={this.handleChange}/>
               </div>
             }
           <Divider horizontal>Other</Divider>

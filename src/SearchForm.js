@@ -40,12 +40,17 @@ class SearchForm extends Component {
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
      this.onChangeDestination = this.onChangeDestination.bind(this);
      this.toggleBar = this.toggleBar.bind(this);
+     this.handleChange = this.handleChange.bind(this);
 
    }
 
-  handleChange = (e, { value }) => {
+  handleChange = (e, { value }, nameTag) => {
+    console.log("onchange", e, value,"name", e.target.name);
     var originalVal = this.state.value;
     var nameAtr = e.target.name || '';
+    if(!nameAtr && nameTag){
+      nameAtr = nameTag;
+    }
     if(nameAtr){
       originalVal[nameAtr] = value;
       this.setState({ value:originalVal })
@@ -215,7 +220,7 @@ const serversData = services_json.services || [];
         <Checkbox label='Is Return Trip' name="isReturnTrip"  onChange={this.handleChange}/>
 
 
-        <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={this.handleChange} />
+        <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={(e, {value}) => this.handleChange(e, {value}, 'age')} />
         <Dropdown placeholder='Mobility' fluid multiple search selection options={stateOptions} />
           <Form.Button>Submit</Form.Button>
           <Divider horizontal></Divider>
@@ -241,7 +246,7 @@ const serversData = services_json.services || [];
         </Menu.Menu>
     </Menu>
     <Item.Group divided>
-      {this.state.listOfServices.map(x =>
+      {this.state.listOfServices.map((x, index) =>
         <ItemCard
           imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
           title={x.shuttlenam}
@@ -249,6 +254,8 @@ const serversData = services_json.services || [];
           phone={x.phone}
           content={x.info}
           rating={x.rating}
+          requirements={x.requirements || {}}
+          index={index}
         />
 
       )}
