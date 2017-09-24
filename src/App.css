@@ -4,7 +4,7 @@
   /*border: 2px solid;*/
   border-color: currentColor;
   border-radius: 14px;
-  box-shadow: 4px 6px 24px 9px rgba(0,0,0,0.75);
+  /*box-shadow: 4px 6px 24px 9px rgba(0,0,0,0.75);*/
   border: 2px solid;
 }
 
@@ -142,4 +142,24 @@ margin-top: 20px!important;
     color: '#ffffff';
     weight: 5;
     opacity: 0.65;
+  }
+
+  .marginTop60{
+    margin-top: 70px!important;
+  }
+  .infoHeader{
+    height: 300px;
+    width: 80%;
+  }
+
+  .titleA{
+    cursor: pointer;
+    padding: 0 20px;
+  }
+
+  .textHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }

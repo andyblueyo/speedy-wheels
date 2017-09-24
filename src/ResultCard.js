@@ -18,7 +18,8 @@ class ResultCard extends Component {
         <Card.Content>
           <Card.Header>
           <a
-          href="{props.url}" target="_blank">{this.props.title}</a>
+          href="{props.url}" target="_blank">{this.props.title}
+          </a>
 
           </Card.Header>
           <Card.Meta>

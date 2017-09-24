@@ -23,6 +23,7 @@ const options = [
   { key: '10', text: '<30', value: '10' },
 ]
 
+
 const Mobilityoptions = [
   { key: 'none', text: 'None', value: 'none' },
   { key: 'Wheelchair', text: 'Wheelchair', value: 'Wheelchair' },
@@ -33,11 +34,12 @@ const Mobilityoptions = [
 ]
 
 class SearchForm extends Component {
-  state = {showEmailAddress: false, showPhoneNumber: false, value:{}}
+  state = {showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}}
   constructor(props) {
      super(props);
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
      this.onChangeDestination = this.onChangeDestination.bind(this);
+     this.toggleBar = this.toggleBar.bind(this);
    }
 
   handleChange = (e, { value }) => {
@@ -87,7 +89,7 @@ class SearchForm extends Component {
         results.push(service)
       }
     }
-    
+
     console.log("eva: results", results)
 
   }
@@ -113,6 +115,11 @@ class SearchForm extends Component {
       console.log("de", this.state.value.destination);
   }
   handleContextRef = contextRef => this.setState({ contextRef })
+
+  toggleBar(){
+    console.log(this.state.showMenuInfo);
+    this.setState({showMenuInfo: !this.state.showMenuInfo})
+  }
   render() {
     const { value } = this.state
     const { contextRef } = this.state
@@ -122,8 +129,13 @@ const serversData = services_json.services || [];
         <div>
           {/* <Sticky className="myCustomerHeaders"> */}
             <Menu size='massive'  className="myCustomerHeaders" fixed="top" className="headerA">
-              <Menu.Item name='' width={'200'}  className="myCustomerHeaders"/>
-              <Menu.Header as='h2' icon='search' content='Request Shuttle' className="myCustomerHeaders"/>
+              <div onClick={this.toggleBar}>
+                <div className="textHeader">
+              <Menu.Header as='h2' icon='search'
+                 content='Click for checking information of Request Shuttle'
+                  className="myCustomerHeaders titleA"/>
+                </div>
+              </div>
           <Menu.Menu position='right'  className="myCustomerHeaders">
             <Menu.Item>
               <Button color="blue">
@@ -136,6 +148,33 @@ const serversData = services_json.services || [];
             </Menu.Item>
           </Menu.Menu>
         </Menu>
+
+        <div></div>
+        {this.state.showMenuInfo &&
+          <Menu size='massive' className="marginTop60">
+<div className="buttonGroups">
+            <Menu.Header as='h2' icon='search' content='Information'/>
+            <div className="infoHeader">
+
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Age nunc isti doceant, vel tu potius quis enim ista melius? Paria sunt igitur. Terram, mihi crede, ea lanx et maria deprimet. Profectus in exilium Tubulus statim nec respondere ausus; Eaedem res maneant alio modo. Duo Reges: constructio interrete. Nunc haec primum fortasse audientis servire debemus.
+
+          Tuo vero id quidem, inquam, arbitratu. Habent enim et bene longam et satis litigiosam disputationem. Ut optime, secundum naturam affectum esse possit. Suo genere perveniant ad extremum; Primum in nostrane potestate est, quid meminerimus? Cum salvum esse flentes sui respondissent, rogavit essentne fusi hostes. Summus dolor plures dies manere non potest? Dici enim nihil potest verius. Sed tempus est, si videtur, et recta quidem ad me.
+</div>
+</div>
+          <Menu.Menu position='right'>
+          <Menu.Item>
+            <Button color="blue" onClick={this.toggleBar}>
+              <a href="/" className="white">
+            Close&nbsp;&nbsp;
+
+            <Icon name='delete'></Icon>
+          </a>
+          </Button>
+          </Menu.Item>
+          </Menu.Menu>
+          </Menu>
+        }
+
       {/* </Sticky> */}
       <div className="wrapper marignTop80"  ref={this.handleContextRef}>
         {/* <div className="tempBackground"> */}
@@ -212,22 +251,7 @@ const serversData = services_json.services || [];
         />
 
       )}
-                <ItemCard
-                  imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
-                  title={'Kirkland Senior Van'}
-                  url={'http://www.kirklandwa.gov/depart/parks/About_Parks_and_Community_Services/Senior_Services/Van_Service_Trip.html'}
-                  phone={'4255873363'}
-                  content={'The Peter Kirk Community Center offers a variety of fun day trips.From visits to beautiful gardens and nurseries to museums, casinos, zoos and boat trips, there is always an adventure just right for you! For a complete listing of trips refer to the Parks& Community Services Quarterly Activity Guide.'}
-                />
-
-                          <ItemCard
-                            imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
-                            title={'Kirkland Senior Van'}
-                            url={'http://www.kirklandwa.gov/depart/parks/About_Parks_and_Community_Services/Senior_Services/Van_Service_Trip.html'}
-                            phone={'4255873363'}
-                            content={'The Peter Kirk Community Center offers a variety of fun day trips.From visits to beautiful gardens and nurseries to museums, casinos, zoos and boat trips, there is always an adventure just right for you! For a complete listing of trips refer to the Parks& Community Services Quarterly Activity Guide.'}
-                          />
-</Item.Group>
+        </Item.Group>
 
         </div>
       </div>
