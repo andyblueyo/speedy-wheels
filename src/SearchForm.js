@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon, Item, Label } from 'semantic-ui-react'
+import { Dropdown, Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon, Item, Label } from 'semantic-ui-react'
 import SimpleForm  from './MyGoogleSuggest';
 import CardBottom  from './CardBottom';
 import ResultCard from './ResultCard';
@@ -12,7 +12,10 @@ import 'semantic-ui-css/semantic.min.css';
 import $ from 'jquery'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 const position = [51.505, -0.09];
-
+const stateOptions = [ { key: 'isMedicalTrip', value: 'isMedicalTrip', text: 'Is this for a medical trip?' },
+{ key: 'isImpaired', value: 'isImpaired', text: 'Are you blind/ visually impaired?' },
+{ key: 'isDoorServer', value: 'isDoorServer', text: 'Do you require door to door service?' },
+  ];
 const options = [
   { key: '65', text: '65+', value: '65' },
   { key: '55', text: '55-64', value: '55' },
@@ -132,12 +135,9 @@ class SearchForm extends Component {
         <input type="datetime-local" name="fromTime" onChange={this.handleChange} />
         <Checkbox label='Is Return Trip' name="isReturnTrip"  onChange={this.handleChange}/>
 
-        <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={this.handleChange} />
-        <Form.Select label='Mobility' name="mobility" options={Mobilityoptions} placeholder='Gender' onChange={this.handleChange} />
-        <Checkbox label='Is this for a medical trip?' name="isMedicalTrip"  onChange={this.handleChange}/>
-        <Checkbox label='Are you blind/ visually impaired?' name="isImpaired"  onChange={this.handleChange}/>
-        <Checkbox label='Do you require door to door service?' name="isDoorServer"  onChange={this.handleChange}/>
 
+        <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={this.handleChange} />
+        <Dropdown placeholder='Mobility' fluid multiple search selection options={stateOptions} />
           <Form.Button>Submit</Form.Button>
           <Divider horizontal></Divider>
           <Menu.Header as='h3' icon='alarm outline' content='Please let us know if you need any help' className=""/>
@@ -179,7 +179,7 @@ class SearchForm extends Component {
                             content={'The Peter Kirk Community Center offers a variety of fun day trips.From visits to beautiful gardens and nurseries to museums, casinos, zoos and boat trips, there is always an adventure just right for you! For a complete listing of trips refer to the Parks& Community Services Quarterly Activity Guide.'}
                           />
 </Item.Group>
-        <Card.Group itemsPerRow={2}>
+        {/* <Card.Group itemsPerRow={2}>
 
           <ResultCard
             imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
@@ -228,7 +228,7 @@ class SearchForm extends Component {
     content={'Use the transportation of your choice to go to a doctor&#39;s appointment,visit a friend, or where ever you wish (no limitations on your travel). APDA will reimburse you up to $300 per year for eligible travel expenses such as taxi, bus, ferry, or rail fare or gasoline expenses. Fill out the application at APDA website or call 206-695-2905. In order to be eligible, you must have a Parkinson&#39;s diagnosis'}
 />
 
-          </Card.Group>
+          </Card.Group> */}
         </div>
       </div>
       </div>
