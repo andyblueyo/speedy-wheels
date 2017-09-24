@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon } from 'semantic-ui-react'
+import { Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon, Item, Label } from 'semantic-ui-react'
 import SimpleForm  from './MyGoogleSuggest';
 import CardBottom  from './CardBottom';
 import ResultCard from './ResultCard';
+import ItemCard from './ItemCard';
 import MyMap from './MyMap';
 
 import './App.css';
@@ -50,16 +51,6 @@ class SearchForm extends Component {
       console.log("eva: e", e)
         console.log("eva: value", this.state.value)
 
-        var request = {}
-        request.name = "Eva"
-        request.origin = "4560 34th Ave S, Seattle, WA 98118"
-        request.destination = "325 9th Ave, Seattle, WA 98104"
-        request.age = 65
-        request.date = "2017/10/02"
-        request.time = "10:00:00"
-        request.ifNeedReturn = true
-        request.ifMedicalApt = false
-        // console.log("eva: handleSubmit",this.getResponse(request))
     }
   toggleEmailForm=()=>{
     this.setState({showEmailAddress: !this.state.showEmailAddress});
@@ -129,7 +120,7 @@ class SearchForm extends Component {
         <Divider horizontal>Basic Information</Divider>
 
           <Form.Field>
-            <label>From</label>
+            <label>Trip Date</label>
             <SimpleForm onChange={this.onChangeOrigin} placeholder={'Where are you starting from?'}/>
           </Form.Field>
           <Form.Field>
@@ -137,15 +128,15 @@ class SearchForm extends Component {
             <SimpleForm onChange={this.onChangeDestination} placeholder={'Where would you like to go?'}/>
           </Form.Field>
         <Divider horizontal></Divider>
-        <label>From</label>
+        <label>Trip Date</label>
         <input type="datetime-local" name="fromTime" onChange={this.handleChange} />
-        <label>To</label>
-        <input type="datetime-local" name="toTime" onChange={this.handleChange} />
+        <Checkbox label='Is Return Trip' name="isReturnTrip"  onChange={this.handleChange}/>
+
         <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={this.handleChange} />
         <Form.Select label='Mobility' name="mobility" options={Mobilityoptions} placeholder='Gender' onChange={this.handleChange} />
-        <Checkbox label='Is this for a medical trip?' />
-        <Checkbox label='Are you blind/ visually impaired?' />
-        <Checkbox label='Do you require door to door service?' />
+        <Checkbox label='Is this for a medical trip?' name="isMedicalTrip"  onChange={this.handleChange}/>
+        <Checkbox label='Are you blind/ visually impaired?' name="isImpaired"  onChange={this.handleChange}/>
+        <Checkbox label='Do you require door to door service?' name="isDoorServer"  onChange={this.handleChange}/>
 
           <Form.Button>Submit</Form.Button>
           <Divider horizontal></Divider>
@@ -170,7 +161,25 @@ class SearchForm extends Component {
           </Menu.Item>
         </Menu.Menu>
     </Menu>
-        <Card.Group itemsPerRow={3}>
+    <Item.Group divided>
+
+                <ItemCard
+                  imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
+                  title={'Kirkland Senior Van'}
+                  url={'http://www.kirklandwa.gov/depart/parks/About_Parks_and_Community_Services/Senior_Services/Van_Service_Trip.html'}
+                  phone={'4255873363'}
+                  content={'The Peter Kirk Community Center offers a variety of fun day trips.From visits to beautiful gardens and nurseries to museums, casinos, zoos and boat trips, there is always an adventure just right for you! For a complete listing of trips refer to the Parks& Community Services Quarterly Activity Guide.'}
+                />
+
+                          <ItemCard
+                            imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
+                            title={'Kirkland Senior Van'}
+                            url={'http://www.kirklandwa.gov/depart/parks/About_Parks_and_Community_Services/Senior_Services/Van_Service_Trip.html'}
+                            phone={'4255873363'}
+                            content={'The Peter Kirk Community Center offers a variety of fun day trips.From visits to beautiful gardens and nurseries to museums, casinos, zoos and boat trips, there is always an adventure just right for you! For a complete listing of trips refer to the Parks& Community Services Quarterly Activity Guide.'}
+                          />
+</Item.Group>
+        <Card.Group itemsPerRow={2}>
 
           <ResultCard
             imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}

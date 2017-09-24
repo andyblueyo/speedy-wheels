@@ -67,6 +67,7 @@ class RequestForm extends Component {
       e.preventDefault();
       console.log("eva: e", e)
         console.log("eva: value", this.state.value)
+        
         if(this.state.showEmailAddress){
           console.log("sending request!");
           $.ajax({

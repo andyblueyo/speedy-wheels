@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon } from 'semantic-ui-react'
+import { Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon, Rating } from 'semantic-ui-react'
 import SimpleForm  from './MyGoogleSuggest';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -15,15 +15,17 @@ class CardBottom extends Component {
           <Grid divided='vertically'  className="buttonGrid">
    <Grid.Row columns={2}>
      <Grid.Column className="gridColumn">
-       <a className="buttonIcons">
+       {/* <a className="buttonIcons">
          <Icon name='thumbs outline up' />
-         10 Votes
-       </a>
+
+       </a> */}
+       <Rating icon='star' defaultRating={3} maxRating={5} />
+       <span className="ratingText">4.5</span>
      </Grid.Column>
      <Grid.Column  className="gridColumn">
        <a className="buttonIcons">
-         <Icon name='thumbs down' />
-         20 Votes
+         <Icon name='user' />
+         20 User
        </a>
      </Grid.Column>
      {/* <Grid.Column>
