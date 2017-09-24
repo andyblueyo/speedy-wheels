@@ -122,13 +122,7 @@ const serversData = services_jon.services || [];
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Age nunc isti doceant, vel tu potius quis enim ista melius? Paria sunt igitur. Terram, mihi crede, ea lanx et maria deprimet. Profectus in exilium Tubulus statim nec respondere ausus; Eaedem res maneant alio modo. Duo Reges: constructio interrete. Nunc haec primum fortasse audientis servire debemus.
 
           Tuo vero id quidem, inquam, arbitratu. Habent enim et bene longam et satis litigiosam disputationem. Ut optime, secundum naturam affectum esse possit. Suo genere perveniant ad extremum; Primum in nostrane potestate est, quid meminerimus? Cum salvum esse flentes sui respondissent, rogavit essentne fusi hostes. Summus dolor plures dies manere non potest? Dici enim nihil potest verius. Sed tempus est, si videtur, et recta quidem ad me.
-
-          Facile est hoc cernere in primis puerorum aetatulis. Quasi ego id curem, quid ille aiat aut neget. Hoc Hieronymus summum bonum esse dixit. Omnes enim iucundum motum, quo sensus hilaretur. Ita relinquet duas, de quibus etiam atque etiam consideret. Nam Pyrrho, Aristo, Erillus iam diu abiecti.
-
-          Tu enim ista lenius, hic Stoicorum more nos vexat. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Itaque primos congressus copulationesque et consuetudinum instituendarum voluntates fieri propter voluptatem; Omnes enim iucundum motum, quo sensus hilaretur.
-
-          Quod cum dixissent, ille contra. Non enim iam stirpis bonum quaeret, sed animalis. Age, inquies, ista parva sunt. Maximus dolor, inquit, brevis est. Si quae forte-possumus. Atqui reperies, inquit, in hoc quidem pertinacem; Multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebamus haec.
-            </div>
+</div>
 </div>
           <Menu.Menu position='right'>
           <Menu.Item>
