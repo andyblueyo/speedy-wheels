@@ -4,7 +4,8 @@ import App from './App';
 import './index.css';
 import RequestForm from './RequestForm';
 import Home from './Home';
-
+import MyMap from './MyMap';
+import SearchForm from './SearchForm'
 import {
   BrowserRouter as Router,
   Route,
@@ -18,6 +19,9 @@ import {
         <Route path="/home" component={RequestForm}   />
         <Route path="/form" component={RequestForm}   />
         <Route path="/info" component={App}   />
+        <Route path="/search" component={SearchForm}   />
+        <Route path="/myMap" component={MyMap}   />
+
       </div>
     </Router>,
     document.getElementById('root')

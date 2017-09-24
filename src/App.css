@@ -1,6 +1,35 @@
 .smallBox{
- max-width: 500px;
- margin: auto;
- padding: 50px;
+  max-width: 500px;
+  padding: 20px 50px;
+  border: 2px solid;
+  border-color: currentColor;
+  border-radius: 14px;
+  box-shadow: 4px 6px 24px 9px rgba(0,0,0,0.75);
+  position: fixed;
+border: 2px solid;
+}
 
+.cardCantiner{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.leaflet-container {
+    height: 400px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.spanMarign{
+  margin-right: 20px;
+}
+
+.TextAreaFulLWidth {
+  width: 100%;
+}
+
+.customerSearchBar {
+  height: 100px;
+  background-color: ghostwhite;
+  font-weight: 500;
 }
