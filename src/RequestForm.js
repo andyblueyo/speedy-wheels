@@ -9,51 +9,68 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 const position = [51.505, -0.09];
 
 class SearchForm extends Component {
-  state = {showEmailAddress: false, showPhoneNumber: false}
+  state = {showEmailAddress: false, showPhoneNumber: false, value:{}}
+  constructor(props) {
+     super(props);
 
+     this.onChangeOrigin = this.onChangeOrigin.bind(this);
+
+     this.onChangeDestination = this.onChangeDestination.bind(this);
+   }
   handleChange = (e, { value }) => {
-      this.setState({ value })
+    console.log("name atr", e.target.name);
+    console.log("event", e);
+    console.log("val", value);
+    var originalVal = this.state.value;
+    var nameAtr = e.target.name || '';
+    if(nameAtr){
+      console.log("originalVal", originalVal);
+
+      originalVal[nameAtr] = value;
+      this.setState({ value:originalVal })
+    }
   }
 
-    processRequest = () => {
-      const lat = 47.559440;
-      const long = -122.363188;
-
-      const tempPoint = {
-        type: 'Point',
-        coordinates: [
-          long,
-          lat
-        ]
-      };
-
-      return this.getResponse(lat, long);
-    }
-
-    getResponse = (lat, long) => {
-      let constructed_url = "https://data.kingcounty.gov/resource/xhy5-rgaa.json?$where=intersects(the_geom, 'POINT ("
-      constructed_url += long.toString()
-      constructed_url += " "
-      constructed_url += lat.toString()
-      constructed_url += ")')"
-
-      $.ajax({
-        //https://data.seattle.gov/resource/n99g-k8uj.json?$where=intersects(the_geom,%20%27POINT%20(-122.4218242%2047.662893)%27)
-        url: constructed_url,
-        type: "GET",
-        data: {
-          "$limit" : 5000,
-          "$$app_token" : "ZblfCkOVREKx1lb1pdaqTTYud"
-        }
-      }).done(function(data) {
-        console.log(data);
-        //console.log("eva: data" ,data);
-      });
-    }
+    // processRequest = () => {
+    //   const lat = 47.559440;
+    //   const long = -122.363188;
+    //
+    //   const tempPoint = {
+    //     type: 'Point',
+    //     coordinates: [
+    //       long,
+    //       lat
+    //     ]
+    //   };
+    //
+    //   return this.getResponse(lat, long);
+    // }
+    //
+    // getResponse = (lat, long) => {
+    //   let constructed_url = "https://data.kingcounty.gov/resource/xhy5-rgaa.json?$where=intersects(the_geom, 'POINT ("
+    //   constructed_url += long.toString()
+    //   constructed_url += " "
+    //   constructed_url += lat.toString()
+    //   constructed_url += ")')"
+    //
+    //   $.ajax({
+    //     //https://data.seattle.gov/resource/n99g-k8uj.json?$where=intersects(the_geom,%20%27POINT%20(-122.4218242%2047.662893)%27)
+    //     url: constructed_url,
+    //     type: "GET",
+    //     data: {
+    //       "$limit" : 5000,
+    //       "$$app_token" : "ZblfCkOVREKx1lb1pdaqTTYud"
+    //     }
+    //   }).done(function(data) {
+    //     console.log(data);
+    //     //console.log("eva: data" ,data);
+    //   });
+    // }
 
     handleSubmit = (e, { value }) => {
+      e.preventDefault();
       console.log("eva: e", e)
-        console.log("eva: value", value)
+        console.log("eva: value", this.state.value)
         if(this.state.showEmailAddress){
           console.log("sending request!");
           $.ajax({
@@ -78,7 +95,7 @@ class SearchForm extends Component {
         request.time = "10:00:00"
         request.ifNeedReturn = true
         request.ifMedicalApt = false
-        console.log("eva: handleSubmit",this.getResponse(request))
+        // console.log("eva: handleSubmit",this.getResponse(request))
     }
   toggleEmailForm=()=>{
     this.setState({showEmailAddress: !this.state.showEmailAddress});
@@ -90,10 +107,19 @@ class SearchForm extends Component {
 
   onChangeOrigin(data){
       console.log("onChangeDestination Data", data);
+      console.log(this.state);
+      var originalVal = this.state.value || {};
+      originalVal["origin"] = data;
+      this.setState({value:originalVal });
   }
 
   onChangeDestination(data){
       console.log("onChangeDestination Data", data);
+      console.log(this.state);
+
+      var originalVal = this.state.value || {};
+      originalVal["destination"] = data;
+      this.setState({value:originalVal });
   }
   render() {
     const { value } = this.state
@@ -116,6 +142,7 @@ class SearchForm extends Component {
             </Button>
           </div>
         </div>
+        <Form onSubmit={this.handleSubmit}>
         <Form.Group widths='equal'>
         <Divider horizontal>Basic Information</Divider>
         <Grid columns='two' divided>
@@ -137,13 +164,13 @@ class SearchForm extends Component {
               <Grid.Column>
                 <Form.Field>
                   <label>First Name</label>
-                  <Form.Input placeholder='First name' />
+                  <Form.Input placeholder='First name'  name="firstName" onChange={this.handleChange} />
                 </Form.Field>
               </Grid.Column>
               <Grid.Column>
                 <Form.Field>
                   <label>Last Name</label>
-                  <Form.Input placeholder='Last name' />
+                  <Form.Input placeholder='Last name'  name="lastname" onChange={this.handleChange} />
                 </Form.Field>
               </Grid.Column>
             </Grid.Row>
@@ -157,13 +184,13 @@ class SearchForm extends Component {
             <Form.Radio label='Phone Call' value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
             {this.state.showPhoneNumber&&
               <div>
-                <Form.Input label='' placeholder='Phone' />
+                <Form.Input label='' placeholder='Phone' onChange={this.handleChange} />
               </div>
             }
             <Form.Radio label='Email' value='md' checked={value === 'md'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.toggleEmailForm()}} />
             {this.state.showEmailAddress&&
               <div>
-                <Form.Input label='' placeholder='Email' />
+                <Form.Input label='' placeholder='Email'  onChange={this.handleChange}/>
               </div>
             }
           </Form.Group>
@@ -174,7 +201,8 @@ class SearchForm extends Component {
           <Form.TextArea label='' placeholder='Comments...' className="TextAreaFulLWidth" />
           </Form.Group>
 
-          <Form.Button onSubmit={console.log(this.processRequest())}>Submit</Form.Button>
+          <Form.Button>Submit</Form.Button>
+          </Form>
       </div>
       <div className="customerResult">
 
