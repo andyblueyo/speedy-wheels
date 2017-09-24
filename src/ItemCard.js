@@ -29,11 +29,11 @@ class ResultCard extends Component {
               <div className="buttonGroupsH">
            <Button color='instagram'  size='medium' className="customerButtonA">
              <Icon name='plus' />
-             <span classNames="white">Add List</span>
+             <span classNames="white">Add to List</span>
            </Button>
            <Button  color='olive'  size='medium' className="customerButtonA">
            <Icon name='book' size='large' />
-           <span classNames="white">Lear to Ride</span>
+           <span classNames="white">Learn to Ride</span>
 
            </Button>
           </div>
