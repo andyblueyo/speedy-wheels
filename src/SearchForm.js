@@ -190,10 +190,10 @@ const serversData = services_json.services || [];
             <Button size='tiny'>
               A
             </Button>
-            <Button size='small'>
+            <Button size='medium'>
               A
             </Button>
-            <Button size='medium'>
+            <Button size='huge'>
               A
             </Button>
           </div>
