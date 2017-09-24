@@ -28,7 +28,8 @@ const Mobilityoptions = [
   { key: 'none', text: 'None', value: 'none' },
   { key: 'Wheelchair', text: 'Wheelchair', value: 'Wheelchair' },
   { key: 'Powerchair', text: 'Powerchair', value: 'Powerchair' },
-  { key: 'DoorToDoorService', text: 'Door to Door Service', value: 'DoorToDoorService' },
+  { key: 'PersonalCareAttendant', text: 'Personal Care Attendant', value: 'PersonalCareAttendant' },
+  { key: 'Walker', text: 'Walker', value: 'Walker'}
 
 
 ]
@@ -211,14 +212,18 @@ const serversData = services_json.services || [];
         <Divider horizontal></Divider>
         <label>Trip Date</label>
         <input type="datetime-local" name="fromTime" onChange={this.handleChange} />
-        <Checkbox label='Is Return Trip' name="isReturnTrip"  onChange={this.handleChange}/>
+        <Checkbox label='Will need return trip' name="isReturnTrip"  onChange={this.handleChange}/>
 
 
-        <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={this.handleChange} />
-        <Dropdown placeholder='Mobility' fluid multiple search selection options={stateOptions} />
+        <Form.Select label='Age' name="age" options={options} placeholder='Select your age' onChange={this.handleChange} />
+        <label>Accessibility Needs</label>
+        <Dropdown placeholder='Select all that apply' fluid multiple search selection options={Mobilityoptions} />
+        <Checkbox label='Is this for a medical trip?' name="isMedicalTrip"  onChange={this.handleChange}/>
+        <Checkbox label='Are you blind/visually impaired?' name="isImpaired"  onChange={this.handleChange}/>
+        <Checkbox label='Do you require door to door service?' name="isDoorServer"  onChange={this.handleChange}/>
           <Form.Button>Submit</Form.Button>
           <Divider horizontal></Divider>
-          <Menu.Header as='h3' icon='alarm outline' content='Please let us know if you need any help' className=""/>
+          <Menu.Header as='h3' icon='alarm outline' content='Please let us know if you need any help.' className=""/>
 
       </Form>
       </div>
