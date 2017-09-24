@@ -151,3 +151,15 @@ margin-top: 20px!important;
     height: 300px;
     width: 80%;
   }
+
+  .titleA{
+    cursor: pointer;
+    padding: 0 20px;
+  }
+
+  .textHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }

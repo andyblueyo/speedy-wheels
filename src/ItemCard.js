@@ -11,7 +11,7 @@ import $ from 'jquery'
 class ResultCard extends Component {
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
       return (
         <Item>
           <Item.Image src={this.props.imgUrl} />

@@ -34,11 +34,12 @@ const Mobilityoptions = [
 ]
 
 class SearchForm extends Component {
-  state = {showEmailAddress: false, showPhoneNumber: false, value:{}}
+  state = {showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}}
   constructor(props) {
      super(props);
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
      this.onChangeDestination = this.onChangeDestination.bind(this);
+     this.toggleBar = this.toggleBar.bind(this);
    }
 
   handleChange = (e, { value }) => {
@@ -77,17 +78,27 @@ class SearchForm extends Component {
       console.log("de", this.state.value.destination);
   }
   handleContextRef = contextRef => this.setState({ contextRef })
+
+  toggleBar(){
+    console.log(this.state.showMenuInfo);
+    this.setState({showMenuInfo: !this.state.showMenuInfo})
+  }
   render() {
     const { value } = this.state
     const { contextRef } = this.state
-console.log("services_jon", services_jon);
+// console.log("services_jon", services_jon);
 const serversData = services_jon.services || [];
       return (
         <div>
           {/* <Sticky className="myCustomerHeaders"> */}
             <Menu size='massive'  className="myCustomerHeaders" fixed="top" className="headerA">
-              <Menu.Item name='' width={'200'}  className="myCustomerHeaders"/>
-              <Menu.Header as='h2' icon='search' content='Request Shuttle' className="myCustomerHeaders"/>
+              <div onClick={this.toggleBar}>
+                <div className="textHeader">
+              <Menu.Header as='h2' icon='search'
+                 content='Click for checking information of Request Shuttle'
+                  className="myCustomerHeaders titleA"/>
+                </div>
+              </div>
           <Menu.Menu position='right'  className="myCustomerHeaders">
             <Menu.Item>
               <Button color="blue">
@@ -102,34 +113,37 @@ const serversData = services_jon.services || [];
         </Menu>
 
         <div></div>
-        <Menu size='massive' className="marginTop60">
-          <Menu.Item name='' width={'200'}  />
-          <Menu.Header as='h2' icon='search' content='Information'/>
-          <div className="infoHeader">
+        {this.state.showMenuInfo &&
+          <Menu size='massive' className="marginTop60">
+<div className="buttonGroups">
+            <Menu.Header as='h2' icon='search' content='Information'/>
+            <div className="infoHeader">
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Age nunc isti doceant, vel tu potius quis enim ista melius? Paria sunt igitur. Terram, mihi crede, ea lanx et maria deprimet. Profectus in exilium Tubulus statim nec respondere ausus; Eaedem res maneant alio modo. Duo Reges: constructio interrete. Nunc haec primum fortasse audientis servire debemus.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Age nunc isti doceant, vel tu potius quis enim ista melius? Paria sunt igitur. Terram, mihi crede, ea lanx et maria deprimet. Profectus in exilium Tubulus statim nec respondere ausus; Eaedem res maneant alio modo. Duo Reges: constructio interrete. Nunc haec primum fortasse audientis servire debemus.
 
-Tuo vero id quidem, inquam, arbitratu. Habent enim et bene longam et satis litigiosam disputationem. Ut optime, secundum naturam affectum esse possit. Suo genere perveniant ad extremum; Primum in nostrane potestate est, quid meminerimus? Cum salvum esse flentes sui respondissent, rogavit essentne fusi hostes. Summus dolor plures dies manere non potest? Dici enim nihil potest verius. Sed tempus est, si videtur, et recta quidem ad me.
+          Tuo vero id quidem, inquam, arbitratu. Habent enim et bene longam et satis litigiosam disputationem. Ut optime, secundum naturam affectum esse possit. Suo genere perveniant ad extremum; Primum in nostrane potestate est, quid meminerimus? Cum salvum esse flentes sui respondissent, rogavit essentne fusi hostes. Summus dolor plures dies manere non potest? Dici enim nihil potest verius. Sed tempus est, si videtur, et recta quidem ad me.
 
-Facile est hoc cernere in primis puerorum aetatulis. Quasi ego id curem, quid ille aiat aut neget. Hoc Hieronymus summum bonum esse dixit. Omnes enim iucundum motum, quo sensus hilaretur. Ita relinquet duas, de quibus etiam atque etiam consideret. Nam Pyrrho, Aristo, Erillus iam diu abiecti.
+          Facile est hoc cernere in primis puerorum aetatulis. Quasi ego id curem, quid ille aiat aut neget. Hoc Hieronymus summum bonum esse dixit. Omnes enim iucundum motum, quo sensus hilaretur. Ita relinquet duas, de quibus etiam atque etiam consideret. Nam Pyrrho, Aristo, Erillus iam diu abiecti.
 
-Tu enim ista lenius, hic Stoicorum more nos vexat. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Itaque primos congressus copulationesque et consuetudinum instituendarum voluntates fieri propter voluptatem; Omnes enim iucundum motum, quo sensus hilaretur.
+          Tu enim ista lenius, hic Stoicorum more nos vexat. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Itaque primos congressus copulationesque et consuetudinum instituendarum voluntates fieri propter voluptatem; Omnes enim iucundum motum, quo sensus hilaretur.
 
-Quod cum dixissent, ille contra. Non enim iam stirpis bonum quaeret, sed animalis. Age, inquies, ista parva sunt. Maximus dolor, inquit, brevis est. Si quae forte-possumus. Atqui reperies, inquit, in hoc quidem pertinacem; Multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebamus haec.
-          </div>
+          Quod cum dixissent, ille contra. Non enim iam stirpis bonum quaeret, sed animalis. Age, inquies, ista parva sunt. Maximus dolor, inquit, brevis est. Si quae forte-possumus. Atqui reperies, inquit, in hoc quidem pertinacem; Multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis; Cum ageremus, inquit, vitae beatum et eundem supremum diem, scribebamus haec.
+            </div>
+</div>
+          <Menu.Menu position='right'>
+          <Menu.Item>
+            <Button color="blue" onClick={this.toggleBar}>
+              <a href="/" className="white">
+            Close&nbsp;&nbsp;
 
-      <Menu.Menu position='right'>
-        <Menu.Item>
-          <Button color="blue">
-            <a href="/" className="white">
-          Close&nbsp;&nbsp;
+            <Icon name='delete'></Icon>
+          </a>
+          </Button>
+          </Menu.Item>
+          </Menu.Menu>
+          </Menu>
+        }
 
-          <Icon name='delete'></Icon>
-        </a>
-        </Button>
-        </Menu.Item>
-      </Menu.Menu>
-    </Menu>
       {/* </Sticky> */}
       <div className="wrapper marignTop80"  ref={this.handleContextRef}>
         {/* <div className="tempBackground"> */}
