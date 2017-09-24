@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Dropdown, Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon, Item, Label } from 'semantic-ui-react'
+import { Dropdown, Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon, Item, Label, Modal } from 'semantic-ui-react'
 import SimpleForm  from './MyGoogleSuggest';
+import RequestForm from './RequestForm';
+
 import CardBottom  from './CardBottom';
 import ResultCard from './ResultCard';
 import ItemCard from './ItemCard';
@@ -35,7 +37,11 @@ const Mobilityoptions = [
 ]
 
 class SearchForm extends Component {
-  state = {addLists: [], showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}, listOfServices: services_json.services}
+  state = {addLists: [], showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}, listOfServices: services_json.services,  open: false}
+
+    // show = size => () => this.setState({ size, open: true })
+    close = () => this.setState({ open: !this.state.open })
+
   constructor(props) {
      super(props);
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
@@ -139,10 +145,12 @@ class SearchForm extends Component {
     const { contextRef } = this.state
 console.log("services_json", services_json);
 const serversData = services_json.services || [];
+      const { open } = this.state
+
       return (
         <div>
           {/* <Sticky className="myCustomerHeaders"> */}
-            <Menu size='massive'  className="myCustomerHeaders" fixed="top" className="headerA">
+            <Menu size='massive'  className="myCustomerHeaders headerA" fixed="top">
               <div onClick={this.toggleBar}>
                 <div className="textHeader">
               <Menu.Header as='h2' icon='search'
@@ -162,6 +170,17 @@ const serversData = services_json.services || [];
               </Button>
               }
               <Button color="blue">
+                <Modal open={open} onClose={this.close}>
+                  <Modal.Header>
+                    Send requests to selected services
+                  </Modal.Header>
+                  <Modal.Content>
+                  <RequestForm />
+                  </Modal.Content>
+                  {/*<Modal.Actions>*/}
+                    {/*<Button positive icon='checkmark' labelPosition='right' content='Send' />*/}
+                  {/*</Modal.Actions>*/}
+                </Modal>
                 <a href="/" className="white">
               Request&nbsp;&nbsp;
 
@@ -236,9 +255,7 @@ const serversData = services_json.services || [];
         <Checkbox label='Will need return trip' name="isReturnTrip"  onChange={this.handleChange}/>
 
 
-        <Form.Select label='Age' name="age" options={options} placeholder='Gender' onChange={(e, {value}) => this.handleChange(e, {value}, 'age')} />
-        <Dropdown placeholder='Mobility' fluid multiple search selection options={stateOptions} />
-        {/* <Form.Select label='Age' name="age" options={options} placeholder='Select your age' onChange={this.handleChange} /> */}
+        <Form.Select label='Age' name="age" options={options} placeholder='Select your age' onChange={(e, {value}) => this.handleChange(e, {value}, 'age')} />
         <label>Accessibility Needs</label>
         <Dropdown placeholder='Select all that apply' fluid multiple search selection options={Mobilityoptions} />
         <Checkbox label='Is this for a medical trip?' name="isMedicalTrip"  onChange={this.handleChange}/>
