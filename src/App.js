@@ -1,9 +1,10 @@
 import $ from 'jquery'
 import React, { Component } from 'react';
-import { Card, Image, Icon, Container } from 'semantic-ui-react';
+import { Card, Image, Icon, Container, Divider, Menu } from 'semantic-ui-react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
+
 import { Map, Marker, Popup, TileLayerCircle,
           CircleMarker,
           Polygon,
@@ -43,6 +44,7 @@ function getGeoJson() {
     };
   }
 
+
 class App extends Component {
   southKing(feature, layer) {
     return {
@@ -61,6 +63,7 @@ class App extends Component {
     }
   }
   render() {
+    const { activeItem } = this.state
 
     return (
       <div className="container">

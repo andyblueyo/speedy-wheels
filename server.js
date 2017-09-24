@@ -22,17 +22,10 @@ app.get('/', function(req,res){
 // app.get('/home', function(req,res){
 // 	res.sendFile(path.join(__dirname+'/public/index.html'));
 // })
-
+//
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 // });
-//
-// app.get('/', function(req,res){
-// 	res.send('index.html');
-// })
-// app.get('/home', function(req,res){
-// 	res.send('index.html');
-// })
 
 mailer.extend(app, {
 from: 'no-reply@example.com',
