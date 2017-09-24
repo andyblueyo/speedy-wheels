@@ -23,8 +23,7 @@
     "recharts": "^1.0.0-alpha.2",
     "semantic-ui-react": "^0.73.1",
     "react-toggle": "^4.0.1",
-    "react-toggle-display": "^2.2.0",
-    "recharts": "^1.0.0-alpha.2"
+    "react-toggle-display": "^2.2.0"
   },
   "devDependencies": {
     "react-router": "^4.1.1",

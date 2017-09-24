@@ -10,7 +10,8 @@ import $ from 'jquery'
 
 class ResultCard extends Component {
 addtoList(){
-  
+  this.props.addtoList(this.props.index);
+
 }
   render() {
     // console.log(this.props);

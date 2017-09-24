@@ -150,36 +150,36 @@ class RequestForm extends Component {
         <div>
           <Header as='h2' icon='bus' content='Request Shuttle' textAlign="center" />
           <div className="textButtons">
-          <label>Text Size</label>
-          <span className="spanMarign"></span>
-            <Button size='tiny'>
-              A
-            </Button>
-            <Button size='small'>
-              A
-            </Button>
-            <Button size='medium'>
-              A
-            </Button>
+          {/*<label>Text Size</label>*/}
+          {/*<span className="spanMarign"></span>*/}
+            {/*<Button size='tiny'>*/}
+              {/*A*/}
+            {/*</Button>*/}
+            {/*<Button size='small'>*/}
+              {/*A*/}
+            {/*</Button>*/}
+            {/*<Button size='medium'>*/}
+              {/*A*/}
+            {/*</Button>*/}
           </div>
         </div>
         <Form onSubmit={ (e, { value }) => {this.handleSubmit(e, { value }); this.show()}}>
         <Divider horizontal>Basic Information</Divider>
         <Grid columns='two'>
-            <Grid.Row>
-              <Grid.Column>
-                <Form.Field>
-                  <label>From</label>
-                  <SimpleForm onChange={this.onChangeOrigin} placeholder={'RangeWhere are you starting from?'}/>
-                </Form.Field>
-              </Grid.Column>
-              <Grid.Column>
-                <Form.Field>
-                  <label>To</label>
-                  <SimpleForm onChange={this.onChangeDestination} placeholder={'Where would you like to go?'}/>
-                </Form.Field>
-              </Grid.Column>
-            </Grid.Row>
+            {/*<Grid.Row>*/}
+              {/*<Grid.Column>*/}
+                {/*<Form.Field>*/}
+                  {/*<label>From</label>*/}
+                  {/*<SimpleForm onChange={this.onChangeOrigin} placeholder={'RangeWhere are you starting from?'}/>*/}
+                {/*</Form.Field>*/}
+              {/*</Grid.Column>*/}
+              {/*<Grid.Column>*/}
+                {/*<Form.Field>*/}
+                  {/*<label>To</label>*/}
+                  {/*<SimpleForm onChange={this.onChangeDestination} placeholder={'Where would you like to go?'}/>*/}
+                {/*</Form.Field>*/}
+              {/*</Grid.Column>*/}
+            {/*</Grid.Row>*/}
             <Grid.Row>
               <Grid.Column>
                 <Form.Field>
@@ -194,6 +194,14 @@ class RequestForm extends Component {
                 </Form.Field>
               </Grid.Column>
             </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <Form.Field>
+                <label>Phone Number</label>
+                <Form.Input placeholder='Phone Number'  name="phonenumber" onChange={this.handleChange} />
+              </Form.Field>
+            </Grid.Column>
+          </Grid.Row>
           </Grid>
         <Divider horizontal></Divider>
           <label>Notifications</label>
@@ -210,9 +218,9 @@ class RequestForm extends Component {
                 <Form.Input label='' placeholder='Email' name="email"  onChange={this.handleChange}/>
               </div>
             }
-          <Divider horizontal>Other</Divider>
-          <label className="spanMarign">About</label>
-          <Form.TextArea label='' placeholder='Comments...' className="TextAreaFulLWidth" />
+          {/*<Divider horizontal>Other</Divider>*/}
+          {/*<label className="spanMarign">About</label>*/}
+          {/*<Form.TextArea label='' placeholder='Comments...' className="TextAreaFulLWidth" />*/}
 
           <Form.Button>Submit</Form.Button>
           </Form>

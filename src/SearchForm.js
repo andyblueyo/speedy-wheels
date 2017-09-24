@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Dropdown, Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon, Item, Label } from 'semantic-ui-react'
+import { Dropdown, Form, Header, Container, Divider, Grid, Button, Checkbox, Menu, Sticky, Card, Image, Icon, Item, Label, Modal } from 'semantic-ui-react'
 import SimpleForm  from './MyGoogleSuggest';
+import RequestForm from './RequestForm';
+
 import CardBottom  from './CardBottom';
 import ResultCard from './ResultCard';
 import ItemCard from './ItemCard';
@@ -35,7 +37,11 @@ const Mobilityoptions = [
 ]
 
 class SearchForm extends Component {
-  state = {showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}, listOfServices: services_json.services}
+  state = {addLists: [], showMenuInfo: true, showEmailAddress: false, showPhoneNumber: false, value:{}, listOfServices: services_json.services,  open: false}
+
+    // show = size => () => this.setState({ size, open: true })
+    close = () => this.setState({ open: !this.state.open })
+
   constructor(props) {
      super(props);
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
@@ -127,15 +133,24 @@ class SearchForm extends Component {
     console.log(this.state.showMenuInfo);
     this.setState({showMenuInfo: !this.state.showMenuInfo})
   }
+
+  addtoList(index){
+    var lists = this.state.addLists;
+  this.setState({addLists: lists.push(index)});
+  console.log(this.state.addLists);
+
+  }
   render() {
     const { value } = this.state
     const { contextRef } = this.state
 console.log("services_json", services_json);
 const serversData = services_json.services || [];
+      const { open } = this.state
+
       return (
         <div>
           {/* <Sticky className="myCustomerHeaders"> */}
-            <Menu size='massive'  className="myCustomerHeaders" fixed="top" className="headerA">
+            <Menu size='massive'  className="myCustomerHeaders headerA" fixed="top">
               <div onClick={this.toggleBar}>
                 <div className="textHeader">
               <Menu.Header as='h2' icon='search'
@@ -145,7 +160,27 @@ const serversData = services_json.services || [];
               </div>
           <Menu.Menu position='right'  className="myCustomerHeaders">
             <Menu.Item>
+              {this.state.addLists.length > 0 &&
+                <Button color="blue">
+                  <a href="/" className="white">
+                Add to List - {this.state.addLists.length}
+
+                <Icon name='chevron right'></Icon>
+              </a>
+              </Button>
+              }
               <Button color="blue">
+                <Modal open={open} onClose={this.close}>
+                  <Modal.Header>
+                    Send requests to selected services
+                  </Modal.Header>
+                  <Modal.Content>
+                  <RequestForm />
+                  </Modal.Content>
+                  {/*<Modal.Actions>*/}
+                    {/*<Button positive icon='checkmark' labelPosition='right' content='Send' />*/}
+                  {/*</Modal.Actions>*/}
+                </Modal>
                 <a href="/" className="white">
               Request&nbsp;&nbsp;
 
@@ -273,6 +308,7 @@ const serversData = services_json.services || [];
           rating={x.rating}
           requirements={x.requirements || {}}
           index={index}
+          addtoList={this.addtoList}
         />
 
       )}
