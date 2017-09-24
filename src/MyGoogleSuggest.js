@@ -11,7 +11,7 @@ onChange =(address) => {
 this.setState({ address });
 geocodeByAddress(this.state.address)
   .then(results => {
-
+console.log("results", results);
   var tempZip = 0;
   if(results[0]["address_components"]){
     var addressLists = results[0]["address_components"];
@@ -34,10 +34,10 @@ geocodeByAddress(this.state.address)
   .then(latLng => {
     console.log("firing");
     this.setState({ lat: latLng.lat , long: latLng.lng })
+    this.props.onChange(this.state);
     console.log(this.state);
   })
   .catch(error => console.error('Error', error));
-  this.props.onChange(this.state);
 
 }
 

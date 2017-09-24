@@ -73,12 +73,14 @@ class SearchForm extends Component {
       var originalVal = this.state.value || {};
       originalVal["destination"] = data;
       this.setState({value:originalVal });
+      console.log("de", this.state.value.destination);
   }
   handleContextRef = contextRef => this.setState({ contextRef })
   render() {
     const { value } = this.state
     const { contextRef } = this.state
 console.log("services_jon", services_jon);
+const serversData = services_jon.services || [];
       return (
         <div>
           {/* <Sticky className="myCustomerHeaders"> */}
@@ -147,7 +149,7 @@ console.log("services_jon", services_jon);
     </Sticky>
   {/* </div> */}
       <div className="customerResult">
-        <MyMap />
+        <MyMap/>
         <Menu size='massive'  className="myCustomerHeaders">
         <Menu.Menu position='right'  className="rightButton">
           <Menu.Item>
@@ -162,7 +164,17 @@ console.log("services_jon", services_jon);
         </Menu.Menu>
     </Menu>
     <Item.Group divided>
+      {serversData.map(x =>
+        <ItemCard
+          imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
+          title={x.operator}
+          url={x.website}
+          phone={x.phone}
+          content={x.info}
+          rating={x.rating}
+        />
 
+      )}
                 <ItemCard
                   imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
                   title={'Kirkland Senior Van'}
@@ -179,56 +191,7 @@ console.log("services_jon", services_jon);
                             content={'The Peter Kirk Community Center offers a variety of fun day trips.From visits to beautiful gardens and nurseries to museums, casinos, zoos and boat trips, there is always an adventure just right for you! For a complete listing of trips refer to the Parks& Community Services Quarterly Activity Guide.'}
                           />
 </Item.Group>
-        {/* <Card.Group itemsPerRow={2}>
 
-          <ResultCard
-            imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
-            title={'Kirkland Senior Van'}
-            url={'http://www.kirklandwa.gov/depart/parks/About_Parks_and_Community_Services/Senior_Services/Van_Service_Trip.html'}
-            phone={'4255873363'}
-            content={'The Peter Kirk Community Center offers a variety of fun day trips.From visits to beautiful gardens and nurseries to museums, casinos, zoos and boat trips, there is always an adventure just right for you! For a complete listing of trips refer to the Parks& Community Services Quarterly Activity Guide.'}
-          />
-
-        <ResultCard
-          imgUrl={'http://www.hawaiiexecutivetransportation.com/WebObjects/HETSWebApp_1.woa/Contents/WebServerResources/images/mercedes-sprinter-van4.png'}
-          title={'American Parkinson&#39;s Disease Association (APDA) Ride Repay Program'}
-          url={'http://www.vets-go.com/provider/american-parkinsons-disease-association-apda-ride-repay-program'}
-          phone={'2066952905'}
-          content={'Use the transportation of your choice to go to a doctor&#39;s appointment,visit a friend, or where ever you wish (no limitations on your travel). APDA will reimburse you up to $300 per year for eligible travel expenses such as taxi, bus, ferry, or rail fare or gasoline expenses. Fill out the application at APDA website or call 206-695-2905. In order to be eligible, you must have a Parkinson&#39;s diagnosis'}
-      />
-      <ResultCard
-        imgUrl={'http://www.kirklandwa.gov/Assets/Senior+Center+Van.jpg'}
-        title={'Road To Recovery'}
-        url={'https://www.cancer.org/treatment/support-programs-and-services/road-to-recovery.html'}
-        phone={'8002272345'}
-        content={'Depending on your individual needs and what’s available in your area, we will:Coordinate a ride with an American Cancer Society volunteer driverCoordinate a ride with a local organization that has partnered with us to provide transportation Refer you to a local resource you can contact for help'}
-      />
-
-      <ResultCard
-        imgUrl={'http://www.hawaiiexecutivetransportation.com/WebObjects/HETSWebApp_1.woa/Contents/WebServerResources/images/mercedes-sprinter-van4.png'}
-        title={'American Parkinson&#39;s Disease Association (APDA) Ride Repay Program'}
-        url={'http://www.vets-go.com/provider/american-parkinsons-disease-association-apda-ride-repay-program'}
-        phone={'2066952905'}
-        content={'Use the transportation of your choice to go to a doctor&#39;s appointment,visit a friend, or where ever you wish (no limitations on your travel). APDA will reimburse you up to $300 per year for eligible travel expenses such as taxi, bus, ferry, or rail fare or gasoline expenses. Fill out the application at APDA website or call 206-695-2905. In order to be eligible, you must have a Parkinson&#39;s diagnosis'}
-    />
-
-    <ResultCard
-      imgUrl={'http://www.hawaiiexecutivetransportation.com/WebObjects/HETSWebApp_1.woa/Contents/WebServerResources/images/mercedes-sprinter-van4.png'}
-      title={'American Parkinson&#39;s Disease Association (APDA) Ride Repay Program'}
-      url={'http://www.vets-go.com/provider/american-parkinsons-disease-association-apda-ride-repay-program'}
-      phone={'2066952905'}
-      content={'Use the transportation of your choice to go to a doctor&#39;s appointment,visit a friend, or where ever you wish (no limitations on your travel). APDA will reimburse you up to $300 per year for eligible travel expenses such as taxi, bus, ferry, or rail fare or gasoline expenses. Fill out the application at APDA website or call 206-695-2905. In order to be eligible, you must have a Parkinson&#39;s diagnosis'}
-  />
-
-  <ResultCard
-    imgUrl={'http://www.hawaiiexecutivetransportation.com/WebObjects/HETSWebApp_1.woa/Contents/WebServerResources/images/mercedes-sprinter-van4.png'}
-    title={'American Parkinson&#39;s Disease Association (APDA) Ride Repay Program'}
-    url={'http://www.vets-go.com/provider/american-parkinsons-disease-association-apda-ride-repay-program'}
-    phone={'2066952905'}
-    content={'Use the transportation of your choice to go to a doctor&#39;s appointment,visit a friend, or where ever you wish (no limitations on your travel). APDA will reimburse you up to $300 per year for eligible travel expenses such as taxi, bus, ferry, or rail fare or gasoline expenses. Fill out the application at APDA website or call 206-695-2905. In order to be eligible, you must have a Parkinson&#39;s diagnosis'}
-/>
-
-          </Card.Group> */}
         </div>
       </div>
       </div>

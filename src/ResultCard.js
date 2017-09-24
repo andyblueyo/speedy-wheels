@@ -34,10 +34,7 @@ class ResultCard extends Component {
             <a
             href="{prop.url}" target="_blank">
             Offical Information</a>
-            {/* <a href={"tel:"+this.props.phone}>
-            <Icon name='volume control phone' size='large' />
-            {this.props.phone}
-            </a> */}
+
 
           </Card.Description>
         </Card.Content>
@@ -52,7 +49,7 @@ class ResultCard extends Component {
        <a href={"tel:"+this.props.phone} className="white">{this.props.phone}</a>
        </Button>
       </div>
-          <CardBottom/>
+          <CardBottom rating={this.props.rating}/>
 
         </Card.Content>
         </Card>

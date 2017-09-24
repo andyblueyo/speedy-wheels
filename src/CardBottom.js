@@ -20,7 +20,7 @@ class CardBottom extends Component {
 
        </a> */}
        <Rating icon='star' defaultRating={3} maxRating={5} />
-       <span className="ratingText">4.5</span>
+       <span className="ratingText">{this.props.rating}</span>
      </Grid.Column>
      <Grid.Column  className="gridColumn">
        <a className="buttonIcons">
