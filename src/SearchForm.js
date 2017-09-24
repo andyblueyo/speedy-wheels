@@ -5,7 +5,6 @@ import CardBottom  from './CardBottom';
 import ResultCard from './ResultCard';
 import ItemCard from './ItemCard';
 import MyMap from './MyMap';
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css';
