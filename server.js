@@ -34,8 +34,8 @@ secureConnection: true, // use SSL
 port: 465, // port for secure SMTP
 transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
 auth: {
-        user: 'codechiang2222@gmail.com',
-        pass: 'city4all'
+        user: 'SpeedyWheelsInfo@gmail.com',
+        pass: 'speedy00'
 }
 });
 
@@ -44,7 +44,7 @@ app.set('view engine', 'ejs');
 app.get('/sendEmail', function (req, res, next) {
 
   app.mailer.send('email', {
-    to: 'chaing4782@example.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+    to: 'chaing4782@google.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
     subject: 'Test Email', // REQUIRED.
     otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
   }, function (err) {

@@ -14,13 +14,9 @@ class RequestForm extends Component {
      super(props);
 
      this.onChangeOrigin = this.onChangeOrigin.bind(this);
-
      this.onChangeDestination = this.onChangeDestination.bind(this);
    }
   handleChange = (e, { value }) => {
-    console.log("name atr", e.target.name);
-    console.log("event", e);
-    console.log("val", value);
     var originalVal = this.state.value;
     var nameAtr = e.target.name || '';
     if(nameAtr){
@@ -127,8 +123,8 @@ class RequestForm extends Component {
         <div>
         <div className="smallBox">
         <div>
-          <Header as='h2' icon='bus' content='Request Shuttle' />
-          <div>
+          <Header as='h2' icon='bus' content='Request Shuttle' textAlign="center" />
+          <div className="textButtons">
           <label>Text Size</label>
           <span className="spanMarign"></span>
             <Button size='tiny'>

@@ -1,11 +1,24 @@
 .smallBox{
-  max-width: 500px;
+align-self: baseline;
+  width: 400px;
   padding: 20px 50px;
-  border: 2px solid;
+  /*border: 2px solid;*/
   border-color: currentColor;
   border-radius: 14px;
   box-shadow: 4px 6px 24px 9px rgba(0,0,0,0.75);
   border: 2px solid;
+}
+
+.customerResult {
+  width: calc(100% - 400px);
+}
+
+.stickeySidebar {
+  /*width: 500px;*/
+}
+.marignTop80{
+  margin-top: 80px;
+
 }
 
 .cardCantiner{
@@ -31,4 +44,31 @@
   height: 100px;
   background-color: ghostwhite;
   font-weight: 500;
+}
+
+.pac-container	{
+  z-index: 1000;
+  background-color: black;
+}
+.textButtons{
+
+  display: flex;
+    justify-content: flex-end;
+}
+
+.myCustomerHeaders {
+
+  z-index: 1000;
+
+}
+
+.wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerA {
+  background-color: #5cb85c !important;
+  color: white;
+  font-size: 20px;
 }

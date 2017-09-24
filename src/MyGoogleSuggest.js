@@ -83,10 +83,13 @@ geocodeByAddress(this.state.address)
       onChange: this.onChange,
       placeholder: this.props.placeholder
     }
+    const myStyles = {
+       root: { position: 'static' },
+     }
 
     return (
       <form>
-        <PlacesAutocomplete inputProps={inputProps} />
+        <PlacesAutocomplete inputProps={inputProps}  styles={myStyles}/>
       </form>
     )
   }
