@@ -12,26 +12,26 @@ class CardBottom extends Component {
   render() {
       return (
 
-          <Grid divided='vertically'>
-   <Grid.Row columns={3}>
-     <Grid.Column>
-       <a>
+          <Grid divided='vertically'  className="buttonGrid">
+   <Grid.Row columns={2}>
+     <Grid.Column className="gridColumn">
+       <a className="buttonIcons">
          <Icon name='thumbs outline up' />
          10 Votes
        </a>
      </Grid.Column>
-     <Grid.Column>
-       <a>
+     <Grid.Column  className="gridColumn">
+       <a className="buttonIcons">
          <Icon name='thumbs down' />
          20 Votes
        </a>
      </Grid.Column>
-     <Grid.Column>
+     {/* <Grid.Column>
        <a>
          <Icon name='user' />
-         1,000 users
+         100 users
        </a>
-     </Grid.Column>
+     </Grid.Column> */}
    </Grid.Row>
  </Grid>
 

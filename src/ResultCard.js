@@ -34,13 +34,24 @@ class ResultCard extends Component {
             <a
             href="{prop.url}" target="_blank">
             Offical Information</a>
-            <a href={"tel:"+this.props.phone}>
+            {/* <a href={"tel:"+this.props.phone}>
             <Icon name='volume control phone' size='large' />
             {this.props.phone}
-            </a>
+            </a> */}
+
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
+          <div className="buttonGroups">
+       <Button color='instagram'  size='huge' className="customerButton">
+         <Icon name='thumbs outline up' />
+         <span classNames="white">Request Ride</span>
+       </Button>
+       <Button  color='youtube'  size='huge' className="customerButton">
+       <Icon name='volume control phone' size='large' />
+       <a href={"tel:"+this.props.phone} className="white">{this.props.phone}</a>
+       </Button>
+      </div>
           <CardBottom/>
 
         </Card.Content>

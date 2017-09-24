@@ -14,7 +14,7 @@ align-self: baseline;
 }
 
 .stickeySidebar {
-color: green;
+/*color: green;*/
   /*width: 500px;*/
 }
 .marignTop80{
@@ -77,4 +77,44 @@ color: green;
 .tempBackground {
   background-color: black;
   /*height: 100%;*/
+}
+
+.buttonGroups{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.white{
+  color: white!important;
+  text-decoration: none;
+
+}
+
+.customerButton{
+  display: flex!important;
+justify-content: space-around!important;
+font-size: 30px!important;
+}
+
+.rightButton button{
+  width:500px;
+  font-size: 30px;
+}
+.buttonIcons{
+  font-size: 20px;
+  text-align: center;
+}
+
+.buttonGrid{
+  margin: 0!important;
+margin-top: 20px!important;
+}
+
+.buttonGrid  i {
+  color: #2185d0;
+}
+
+.gridColumn{
+  text-align: center;
 }

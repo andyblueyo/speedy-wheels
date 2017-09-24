@@ -93,7 +93,13 @@ class SearchForm extends Component {
               <Menu.Header as='h2' icon='search' content='Request Shuttle' className="myCustomerHeaders"/>
           <Menu.Menu position='right'  className="myCustomerHeaders">
             <Menu.Item>
-              <Button><a href="/">Visit</a></Button>
+              <Button color="blue">
+                <a href="/" className="white">
+              Visit&nbsp;&nbsp;
+
+              <Icon name='chevron right'></Icon>
+            </a>
+            </Button>
             </Menu.Item>
           </Menu.Menu>
         </Menu>
@@ -151,6 +157,19 @@ class SearchForm extends Component {
   {/* </div> */}
       <div className="customerResult">
         <MyMap />
+        <Menu size='massive'  className="myCustomerHeaders">
+        <Menu.Menu position='right'  className="rightButton">
+          <Menu.Item>
+            <Button color='green'>
+              <Icon name='print' />
+
+              <a href="/" className="white">
+            Print Friendly &nbsp;&nbsp;
+          </a>
+          </Button>
+          </Menu.Item>
+        </Menu.Menu>
+    </Menu>
         <Card.Group itemsPerRow={3}>
 
           <ResultCard
