@@ -11,13 +11,11 @@ onChange =(address) => {
 this.setState({ address });
 geocodeByAddress(this.state.address)
   .then(results => {
-    console.log("results",results);
-  console.log("results--first",results[0]);
+
   var tempZip = 0;
   if(results[0]["address_components"]){
     var addressLists = results[0]["address_components"];
     var zipCodeArry = addressLists.filter(x => {
-      console.log("x", x);
       var longName = x["short_name"] || "";
       if(longName && longName.length == 5 && parseInt(longName) > 0){
         return longName;
