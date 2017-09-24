@@ -104,7 +104,19 @@ class SearchForm extends Component {
     }
 
     console.log("eva: results", results)
+    results = this.sortByKey(results, 'rating').slice(0, 5);
+
+    console.log('sorted:', results);
+
     this.setState({listOfServices: results});
+  }
+
+  sortByKey = (arr, key) => {
+    return arr.sort(function(a, b) {
+      var x = a[key];
+      var y = b[key];
+      return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+    });
   }
 
   toggleEmailForm=()=>{
