@@ -95,7 +95,7 @@ const serversData = services_jon.services || [];
               <div onClick={this.toggleBar}>
                 <div className="textHeader">
               <Menu.Header as='h2' icon='search'
-                 content='Click for checking information of Request Shuttle'
+                 content='Submit to request a ride'
                   className="myCustomerHeaders titleA"/>
                 </div>
               </div>
@@ -103,7 +103,7 @@ const serversData = services_jon.services || [];
             <Menu.Item>
               <Button color="blue">
                 <a href="/" className="white">
-              Visit&nbsp;&nbsp;
+              Request&nbsp;&nbsp;
 
               <Icon name='chevron right'></Icon>
             </a>
@@ -116,13 +116,12 @@ const serversData = services_jon.services || [];
         {this.state.showMenuInfo &&
           <Menu size='massive' className="marginTop60">
 <div className="buttonGroups">
-            <Menu.Header as='h2' icon='search' content='Information'/>
+            <Menu.Header as='h2' icon='search' content='What is requesting?'/>
             <div className="infoHeader">
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Age nunc isti doceant, vel tu potius quis enim ista melius? Paria sunt igitur. Terram, mihi crede, ea lanx et maria deprimet. Profectus in exilium Tubulus statim nec respondere ausus; Eaedem res maneant alio modo. Duo Reges: constructio interrete. Nunc haec primum fortasse audientis servire debemus.
-
-          Tuo vero id quidem, inquam, arbitratu. Habent enim et bene longam et satis litigiosam disputationem. Ut optime, secundum naturam affectum esse possit. Suo genere perveniant ad extremum; Primum in nostrane potestate est, quid meminerimus? Cum salvum esse flentes sui respondissent, rogavit essentne fusi hostes. Summus dolor plures dies manere non potest? Dici enim nihil potest verius. Sed tempus est, si videtur, et recta quidem ad me.
-</div>
+              <p>Requesting is a process where Speedy Wheels will send an email to selected ride services to contact organizations about the availability of the service. Organizations will work with the given information such as destination and time to determine if they will be able to provide the requested service. </p>
+              <p></p>
+              <p>Select ride services by clicking “Add to List”. Ride services will be added to the list of organizations to contact. By clicking “Request”, Speedy Wheels will contact the selected organizations on your behalf. Organizations will receive an email request and will follow up with a call or email within two business days. Requesting a trip is a free service provided by Speedy Wheels. Payment of transportation will be determined by each individual organization.</p>
+            </div>
 </div>
           <Menu.Menu position='right'>
           <Menu.Item>
