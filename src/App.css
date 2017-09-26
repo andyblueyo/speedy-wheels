@@ -125,6 +125,11 @@ font-size: 30px!important;
 margin-top: 20px!important;
 }
 
+.textModal{
+  margin: auto;
+text-align: center;
+}
+
 .buttonGrid  i {
   color: #2185d0;
 }

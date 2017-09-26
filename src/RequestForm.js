@@ -17,6 +17,7 @@ class RequestForm extends Component {
      this.onChangeDestination = this.onChangeDestination.bind(this);
      this.handleChange = this.handleChange.bind(this);
      this.toggleEmailForm = this.toggleEmailForm.bind(this);
+     this.toogleSubmitForm = this.toogleSubmitForm.bind(this);
    }
    handleChange = (e, { value }, nameTag) => {
      console.log("onchange", e, value,"name", e.target.name);
@@ -58,7 +59,7 @@ class RequestForm extends Component {
       e.preventDefault();
       console.log("eva: e", e)
         console.log("eva: value", this.state.value)
-
+        var self = this;
         if(this.state.showEmailAddress){
           console.log("sending request!");
           $.ajax({
@@ -68,11 +69,11 @@ class RequestForm extends Component {
               "$limit" : 5000,
               "$$app_token" : "ZblfCkOVREKx1lb1pdaqTTYud"
             }
-          }).done(function(data) {
-            // console.log(data);
-            //console.log("eva: data" ,data);
-          });
 
+          }).done(function(data) {
+          });
+          // this.toogleSubmitForm();
+          this.setState({open: true});
         }
         var request = {}
         request.name = "Eva"
@@ -109,8 +110,10 @@ class RequestForm extends Component {
       originalVal["destination"] = data;
       this.setState({value:originalVal });
   }
-  show =() => () => this.setState({  open: true })
- close = () => this.setState({ open: false })
+  // show =() => () => this.setState({  open: true })
+ toogleSubmitForm (){
+   this.setState({ open: false })
+ }
   render() {
     const { value } = this.state
       return (
@@ -122,69 +125,68 @@ class RequestForm extends Component {
 
           </div>
         </div>
-        <Form onSubmit={ (e, { value }) => {this.handleSubmit(e, { value }); this.show()}}>
-        <Divider horizontal>Basic Information</Divider>
-        <Grid columns='two'>
+        {!this.state.open &&
+          <Form onSubmit={ (e, { value }) => {this.handleSubmit(e, { value });}}>
+          <Divider horizontal>Basic Information</Divider>
+          <Grid columns='two'>
 
+              <Grid.Row>
+                <Grid.Column>
+                  <Form.Field>
+                    <label>First Name</label>
+                    <Form.Input placeholder='First name'  name="firstName" onChange={this.handleChange} />
+                  </Form.Field>
+                </Grid.Column>
+                <Grid.Column>
+                  <Form.Field>
+                    <label>Last Name</label>
+                    <Form.Input placeholder='Last name'  name="lastname" onChange={this.handleChange} />
+                  </Form.Field>
+                </Grid.Column>
+              </Grid.Row>
             <Grid.Row>
               <Grid.Column>
                 <Form.Field>
-                  <label>First Name</label>
-                  <Form.Input placeholder='First name'  name="firstName" onChange={this.handleChange} />
-                </Form.Field>
-              </Grid.Column>
-              <Grid.Column>
-                <Form.Field>
-                  <label>Last Name</label>
-                  <Form.Input placeholder='Last name'  name="lastname" onChange={this.handleChange} />
+                  <label>Phone Number</label>
+                  <Form.Input placeholder='Phone Number'  name="phonenumber" onChange={this.handleChange} />
                 </Form.Field>
               </Grid.Column>
             </Grid.Row>
-          <Grid.Row>
-            <Grid.Column>
-              <Form.Field>
-                <label>Phone Number</label>
-                <Form.Input placeholder='Phone Number'  name="phonenumber" onChange={this.handleChange} />
-              </Form.Field>
-            </Grid.Column>
-          </Grid.Row>
-          </Grid>
-        <Divider horizontal></Divider>
-          <label>Notifications</label>
-            <Form.Radio label='Text' value='sm'  name="textR" checked={value === 'sm'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
-            <Form.Radio label='Phone Call' name="Phoner" value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
-            {this.state.showPhoneNumber&&
-              <div>
-                <Form.Input label='' placeholder='Phone' name="phone" onChange={this.handleChange} />
-              </div>
-            }
-            <Form.Radio label='Email' name="emailRadio" value='md' checked={value === 'md'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.toggleEmailForm()}} />
-            {this.state.showEmailAddress&&
-              <div>
-                <Form.Input label='' placeholder='Email' name="email"  onChange={this.handleChange}/>
-              </div>
-            }
+            </Grid>
+          <Divider horizontal></Divider>
+            <label>Notifications</label>
+              <Form.Radio label='Text' value='sm'  name="textR" checked={value === 'sm'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
+              <Form.Radio label='Phone Call' name="Phoner" value='lg' checked={value === 'lg'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.tooglePhoneForm()}} />
+              {this.state.showPhoneNumber&&
+                <div>
+                  <Form.Input label='' placeholder='Phone' name="phone" onChange={this.handleChange} />
+                </div>
+              }
+              <Form.Radio label='Email' name="emailRadio" value='md' checked={value === 'md'} onChange={(e, { value }) => {this.handleChange(e, { value }); this.toggleEmailForm()}} />
+              {this.state.showEmailAddress&&
+                <div>
+                  <Form.Input label='' placeholder='Email' name="email"  onChange={this.handleChange}/>
+                </div>
+              }
 
-          <Form.Button>Submit</Form.Button>
-          </Form>
+            <Form.Button>Submit</Form.Button>
+            </Form>
+        }
       </div>
       <div className="customerResult">
-        <Modal size={'tiny'} open={this.state.open} onClose={this.close}>
-              <Modal.Header>
-                Your Information Has been Sent.
-                {/* {this.state.value.email && <div>You send email to {this.state.value.email}</div>} */}
-              </Modal.Header>
-              <Modal.Content>
-                <Icon circular name='check' color="green" size='big' />
-              </Modal.Content>
-              <Modal.Actions>
-                {/* <Button negative>
-                  No
-                </Button> */}
-                <Button positive icon='checkmark' labelPosition='right' content='Close' />
-              </Modal.Actions>
-            </Modal>
+
       </div>
+      {this.state.open &&
+        <div className="textModal">
+          <Icon circular name='check' color="green" size='big' />
+                Your Information Has been Sent.
+                {this.state.value&& this.state.value.email &&
+                  <div>You send email to {this.state.value.email}</div>
+                }
+
+
+              </div>
+      }
 
       </div>
     );

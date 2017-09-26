@@ -44,8 +44,8 @@ app.set('view engine', 'ejs');
 app.get('/sendEmail', function (req, res, next) {
 
   app.mailer.send('email', {
-    to: 'chaing4782@google.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
-    subject: 'Test Email', // REQUIRED.
+    to: 'chiang4782@example.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+    subject: 'Request Confirmation', // REQUIRED.
     otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
   }, function (err) {
     if (err) {
